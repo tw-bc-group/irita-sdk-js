@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PubkeyType = exports.TxType = exports.Msg = void 0;
 const helper_1 = require("../helper");
 /**
  * Base Msg

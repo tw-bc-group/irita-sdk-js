@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Coinswap = void 0;
 const mathjs = require("mathjs");
 const is = require("is_js");
 const types_1 = require("../types");
@@ -28,7 +29,7 @@ class Coinswap {
         /** @hidden */
         this.mathConfig = {
             number: 'BigNumber',
-            precision: 64,
+            precision: 64, // 64 by default, only applicable for BigNumbers
         };
         this.client = client;
         this.math = mathjs.create(mathjs.all, this.mathConfig);
@@ -203,7 +204,7 @@ class Coinswap {
                 exact_standard_amt: exactStdAmt,
                 max_token: { denom: calculatedDenom, amount: '-1' },
                 min_liquidity: exactStdAmt,
-                deadline: 10000,
+                deadline: 10000, // default 10s
             };
             if (is.positive(Number(reservePool.standard.amount)) &&
                 is.positive(Number(reservePool.token.amount))) {
@@ -231,7 +232,7 @@ class Coinswap {
                 min_standard_amt: 0,
                 min_token: 0,
                 withdraw_liquidity: exactWithdrawLiquidity,
-                deadline: 10000,
+                deadline: 10000, // default 10s
             };
             if (is.positive(Number(reservePool.standard.amount)) &&
                 is.positive(Number(reservePool.token.amount))) {

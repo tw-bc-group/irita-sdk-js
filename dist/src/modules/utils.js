@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Utils = void 0;
 const mathjs = require("mathjs");
 /**
  * Utils for the IRITA SDK
@@ -21,7 +22,7 @@ class Utils {
         /** @hidden */
         this.mathConfig = {
             number: 'BigNumber',
-            precision: 64,
+            precision: 64, // 64 by default, only applicable for BigNumbers
         };
         this.client = client;
         this.tokenMap = new Map();

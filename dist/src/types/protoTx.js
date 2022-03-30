@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProtoTx = void 0;
 const helper_1 = require("../helper");
 const types = require("../types");
 const Sha256 = require('sha256');
