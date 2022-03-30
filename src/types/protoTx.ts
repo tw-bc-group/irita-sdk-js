@@ -57,7 +57,7 @@ export class ProtoTx {
     /**
      * add public key
      * @param {[string]} bech32/hex or object. if string, default Secp256k1
-     * @param {optional [number]} sequence 
+     * @param {optional [number]} sequence
      */
     setPubKey(pubkey:string|types.Pubkey, sequence?:string){
         sequence = sequence || this.txData.sequence;
@@ -69,8 +69,8 @@ export class ProtoTx {
     }
 
     /**
-     * Get SignDoc for signature 
-     * @returns SignDoc  protobuf.Tx.SignDoc 
+     * Get SignDoc for signature
+     * @returns SignDoc  protobuf.Tx.SignDoc
      */
     getSignDoc(account_number?:string, chain_id?:string):any{
         if (!this.hasPubKey()) {
@@ -95,8 +95,8 @@ export class ProtoTx {
         of body and auth_info. This is used for signing, broadcasting and
         verification. The binary `serialize(tx: TxRaw)` is stored in Tendermint and
         the hash `sha256(serialize(tx: TxRaw))` becomes the "txhash", commonly used
-        as the transaction ID. 
-     * @returns TxRaw  protobuf.Tx.TxRaw 
+        as the transaction ID.
+     * @returns TxRaw  protobuf.Tx.TxRaw
      */
     getTxRaw():any{
         if (!this.hasPubKey()) {
@@ -122,19 +122,23 @@ export class ProtoTx {
         return this.authInfo.getSignerInfosList().length > 0;
     }
 
-    /**
-     *  Used for RPC send transactions
-     *  You can commit the data directly to RPC
-     * @returns base64 string
-     */
-    getData():Uint8Array {
+    getTx():any {
         let tx = new types.tx_tx_pb.Tx();
         tx.setBody(this.body);
         tx.setAuthInfo(this.authInfo);
         this.signatures.forEach((signature)=>{
             tx.addSignatures(signature);
         })
-        return tx.serializeBinary();
+        return tx;
+    }
+
+    /**
+     *  Used for RPC send transactions
+     *  You can commit the data directly to RPC
+     * @returns base64 string
+     */
+    getData():Uint8Array {
+        return this.getTx().serializeBinary();
     }
 
     /**
@@ -145,7 +149,7 @@ export class ProtoTx {
         let txRaw = this.getTxRaw();
         let txHash:string = (Sha256(txRaw.serializeBinary()) || '').toUpperCase();
         return txHash;
-    } 
+    }
 
     getProtoModel():any{
         let tx = new types.tx_tx_pb.Tx();

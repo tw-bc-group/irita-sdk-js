@@ -8,6 +8,7 @@ export const gov_tx_pb = require( './proto-types/cosmos/gov/v1beta1/tx_pb');
 export const slashing_tx_pb = require( './proto-types/cosmos/slashing/v1beta1/tx_pb');
 export const staking_tx_pb = require( './proto-types/cosmos/staking/v1beta1/tx_pb');
 export const tx_tx_pb = require( './proto-types/cosmos/tx/v1beta1/tx_pb');
+export const tx_service_pb = require( './proto-types/cosmos/tx/v1beta1/service_pb');
 export const vesting_tx_pb = require( './proto-types/cosmos/vesting/v1beta1/tx_pb');
 //irismod tx
 export const coinswap_tx_pb= require( './proto-types/irismod/coinswap/tx_pb');
