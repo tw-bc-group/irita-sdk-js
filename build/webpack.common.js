@@ -14,20 +14,19 @@ module.exports = {
         libraryTarget: 'umd'
     },
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        fallback: {
+          "buffer": false,
+          "stream": false,
+      },
+    },
+    externals: {
+      bufferutil: "bufferutil",
+      "utf-8-validate": "utf-8-validate",
+      uuid: "uuid",
     },
     module: {
         rules: [{
-            enforce: 'pre',
-            test: /\.ts$/,
-            include: [srcRoot],
-            use: [{
-                loader: 'eslint-loader',
-                options: {
-                    failOnWarning: production
-                }
-            }]
-        }, {
             test: /\.ts$/,
             include: [srcRoot],
             use: [
