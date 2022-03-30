@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SdkError = exports.CODES = void 0;
 const CODESPACE_ROOT = 'sdk';
 /** Error codes in irishub v1.0 */
 exports.CODES = {
@@ -82,7 +81,7 @@ const errorMap = new Map([
     [CODESPACE_ROOT + CODES_V17.ServiceTxLimit, exports.CODES.InvalidRequest],
     [CODESPACE_ROOT + CODES_V17.PaginationParams, exports.CODES.InvalidRequest],
 ]);
-/** IRISHub SDK Error */
+/** IRITA SDK Error */
 class SdkError extends Error {
     /**
      * Initialize SdkError with irishub error msg

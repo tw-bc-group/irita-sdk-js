@@ -44,6 +44,7 @@ export declare class ProtoTx {
      * @returns true/false
      */
     hasPubKey(): boolean;
+    getTx(): any;
     /**
      *  Used for RPC send transactions
      *  You can commit the data directly to RPC

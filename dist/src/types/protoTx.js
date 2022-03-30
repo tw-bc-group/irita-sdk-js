@@ -1,6 +1,5 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProtoTx = void 0;
 const helper_1 = require("../helper");
 const types = require("../types");
 const Sha256 = require('sha256');
@@ -105,19 +104,22 @@ class ProtoTx {
     hasPubKey() {
         return this.authInfo.getSignerInfosList().length > 0;
     }
-    /**
-     *  Used for RPC send transactions
-     *  You can commit the data directly to RPC
-     * @returns base64 string
-     */
-    getData() {
+    getTx() {
         let tx = new types.tx_tx_pb.Tx();
         tx.setBody(this.body);
         tx.setAuthInfo(this.authInfo);
         this.signatures.forEach((signature) => {
             tx.addSignatures(signature);
         });
-        return tx.serializeBinary();
+        return tx;
+    }
+    /**
+     *  Used for RPC send transactions
+     *  You can commit the data directly to RPC
+     * @returns base64 string
+     */
+    getData() {
+        return this.getTx().serializeBinary();
     }
     /**
      * get Tx Hash

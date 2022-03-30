@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TxModelCreator = void 0;
 const types = require("../types");
 const txHelper_1 = require("./txHelper");
 class TxModelCreator {

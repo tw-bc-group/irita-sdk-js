@@ -7,6 +7,7 @@ export declare const gov_tx_pb: any;
 export declare const slashing_tx_pb: any;
 export declare const staking_tx_pb: any;
 export declare const tx_tx_pb: any;
+export declare const tx_service_pb: any;
 export declare const vesting_tx_pb: any;
 export declare const coinswap_tx_pb: any;
 export declare const htlc_tx_pb: any;

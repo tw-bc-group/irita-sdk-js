@@ -9,13 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Coinswap = void 0;
 const mathjs = require("mathjs");
 const is = require("is_js");
 const types_1 = require("../types");
 const errors_1 = require("../errors");
 /**
- * Implementation of the [Constant Product Market Maker Model](https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf) token exchange protocol on IRISHub.
+ * Implementation of the [Constant Product Market Maker Model](https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf) token exchange protocol on IRITA.
  *
  * [More Details](https://www.irisnet.org/docs/features/coinswap.html)
  *

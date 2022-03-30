@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Tx = void 0;
 const is = require("is_js");
 const types = require("../types");
 const errors_1 = require("../errors");
@@ -356,6 +355,21 @@ class Tx {
             }
         }
         return msg;
+    }
+    /**
+     * Simulate the transactions
+     * @param msgs Msgs to be simulate
+     * @param baseTx
+     * @returns
+     */
+    simulate(msgs, baseTx) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const unsignedTx = this.buildTx(msgs, baseTx);
+            const signedTx = yield this.sign(unsignedTx, baseTx);
+            const request = new types.tx_service_pb.SimulateRequest();
+            request.setTx(signedTx.getTx());
+            return this.client.rpcClient.protoQuery('/cosmos.tx.v1beta1.Service/Simulate', request, types.tx_service_pb.SimulateResponse);
+        });
     }
 }
 exports.Tx = Tx;

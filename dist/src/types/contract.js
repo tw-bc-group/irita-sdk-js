@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MsgClearAdmin = exports.MsgUpdateAdmin = exports.MsgMigrateContract = exports.MsgExecuteContract = exports.MsgInstantiateContract = exports.MsgStoreCode = exports.AccessType = void 0;
 const types_1 = require("./types");
 const helper_1 = require("../helper");
 const pbs = require("./proto");

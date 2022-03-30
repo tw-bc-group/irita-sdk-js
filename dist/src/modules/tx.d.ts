@@ -96,4 +96,11 @@ export declare class Tx {
         type: string;
         value: any;
     }): any;
+    /**
+     * Simulate the transactions
+     * @param msgs Msgs to be simulate
+     * @param baseTx
+     * @returns
+     */
+    simulate(msgs: any[], baseTx: types.BaseTx): Promise<types.TxSimulationResult>;
 }

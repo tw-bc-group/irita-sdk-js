@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventListener = void 0;
 const errors_1 = require("../errors");
 const types = require("../types");
 const utils_1 = require("../utils");
@@ -35,7 +34,7 @@ class EventDAO {
     }
 }
 /**
- * IRISHub Event Listener
+ * IRITA Event Listener
  * @since v0.17
  */
 class EventListener {
