@@ -22,10 +22,10 @@ export declare class Keys {
      * @returns Bech32 address and mnemonic
      * @since v0.17
      */
-    add(name: string, password: string, type?: types.PubkeyType): {
+    add(name: string, password: string, type?: types.PubkeyType): Promise<{
         address: string;
         mnemonic: string;
-    };
+    }>;
     /**
      * Recover a key
      *
@@ -39,7 +39,7 @@ export declare class Keys {
      * @returns Bech32 address
      * @since v0.17
      */
-    recover(name: string, password: string, mnemonic: string, type?: types.PubkeyType, index?: number, derive?: boolean, saltPassword?: string): string;
+    recover(name: string, password: string, mnemonic: string, type?: types.PubkeyType, index?: number, derive?: boolean, saltPassword?: string): Promise<string>;
     /**
      * Import a key from keystore
      *
@@ -50,7 +50,7 @@ export declare class Keys {
      * @returns Bech32 address
      * @since v0.17
      */
-    import(name: string, password: string, keystore: string | types.Keystore, type?: types.PubkeyType): string;
+    import(name: string, password: string, keystore: string | types.Keystore, type?: types.PubkeyType): Promise<string>;
     /**
      * Import a PrivateKey
      *
@@ -61,7 +61,7 @@ export declare class Keys {
      * @returns Bech32 address
      * @since v0.17
      */
-    importPrivateKey(name: string, password: string, privateKey: string, type?: types.PubkeyType): string;
+    importPrivateKey(name: string, password: string, privateKey: string, type?: types.PubkeyType): Promise<string>;
     /**
      * Export keystore of a key
      *
@@ -71,7 +71,7 @@ export declare class Keys {
      * @returns Keystore json
      * @since v0.17
      */
-    export(name: string, keyPassword: string, keystorePassword: string): string;
+    export(name: string, keyPassword: string, keystorePassword: string): Promise<string>;
     /**
      * Delete a key
      *
@@ -79,7 +79,7 @@ export declare class Keys {
      * @param password Password of the key
      * @since v0.17
      */
-    delete(name: string, password: string): void;
+    delete(name: string, password: string): Promise<void>;
     /**
      * Gets address of a key
      *
@@ -87,5 +87,5 @@ export declare class Keys {
      * @returns Bech32 address
      * @since v0.17
      */
-    show(name: string): string;
+    show(name: string): Promise<string>;
 }

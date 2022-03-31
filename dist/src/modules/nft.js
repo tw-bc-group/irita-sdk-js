@@ -35,7 +35,7 @@ class Nft {
      */
     issueDenom(id, name, schema, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgIssueDenom,
@@ -67,7 +67,7 @@ class Nft {
             if (recipient && !crypto_1.Crypto.checkAddress(recipient, this.client.config.bech32Prefix.AccAddr)) {
                 throw new errors_1.SdkError('recipient Invalid bech32 address');
             }
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             if (!recipient) {
                 recipient = sender;
             }
@@ -99,7 +99,7 @@ class Nft {
      */
     editNft(id, denom_id, new_property, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgEditNFT,
@@ -126,7 +126,7 @@ class Nft {
             if (recipient && !crypto_1.Crypto.checkAddress(recipient, this.client.config.bech32Prefix.AccAddr)) {
                 throw new errors_1.SdkError('recipient Invalid bech32 address');
             }
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgTransferNFT,
@@ -149,7 +149,7 @@ class Nft {
      */
     burnNft(id, denom_id, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgBurnNFT,

@@ -38,7 +38,7 @@ export class Contract {
     },
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgStoreCode,
@@ -73,7 +73,7 @@ export class Contract {
     admin: string = '',
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgInstantiateContract,
@@ -105,7 +105,7 @@ export class Contract {
     sent_funds: types.Coin[],
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgExecuteContract,
@@ -135,7 +135,7 @@ export class Contract {
     migrate_msg: Buffer,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgMigrateContract,
@@ -163,7 +163,7 @@ export class Contract {
     contract: string,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgUpdateAdmin,
@@ -188,7 +188,7 @@ export class Contract {
     contract: string,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgClearAdmin,

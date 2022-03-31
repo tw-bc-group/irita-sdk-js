@@ -29,11 +29,11 @@ export class Keys {
    * @returns Bech32 address and mnemonic
    * @since v0.17
    */
-  add(
-    name: string, 
-    password: string, 
+  async add(
+    name: string,
+    password: string,
     type:types.PubkeyType = types.PubkeyType.secp256k1
-    ): { address: string; mnemonic: string } {
+  ): Promise<{ address: string; mnemonic: string }> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -43,7 +43,7 @@ export class Keys {
     if (!this.client.config.keyDAO.encrypt) {
       throw new SdkError(`Encrypt method of KeyDAO not implemented`);
     }
-    const exists = this.client.config.keyDAO.read(name);
+    const exists = await this.client.config.keyDAO.read(name);
     if (exists) {
       throw new SdkError(`Key with name '${name}' already exists`);
     }
@@ -61,7 +61,7 @@ export class Keys {
     );
 
     // Save the key to app
-    this.client.config.keyDAO.write(name, {
+    await this.client.config.keyDAO.write(name, {
       address,
       privKey: encryptedPrivKey,
     });
@@ -82,7 +82,7 @@ export class Keys {
    * @returns Bech32 address
    * @since v0.17
    */
-  recover(
+  async recover(
     name: string,
     password: string,
     mnemonic: string,
@@ -90,7 +90,7 @@ export class Keys {
     index = 0,
     derive = true,
     saltPassword = '',
-  ): string {
+  ): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -103,7 +103,7 @@ export class Keys {
     if (!this.client.config.keyDAO.encrypt) {
       throw new SdkError(`Encrypt method of KeyDAO not implemented`);
     }
-    const exists = this.client.config.keyDAO.read(name);
+    const exists = await this.client.config.keyDAO.read(name);
     if (exists) {
       throw new SdkError(`Key with name '${name}' exists`);
     }
@@ -126,7 +126,7 @@ export class Keys {
     );
 
     // Save the key to app
-    this.client.config.keyDAO.write(name, {
+    await this.client.config.keyDAO.write(name, {
       address,
       privKey: encryptedPrivKey,
     });
@@ -144,12 +144,12 @@ export class Keys {
    * @returns Bech32 address
    * @since v0.17
    */
-  import(
+  async import(
     name: string,
     password: string,
     keystore: string | types.Keystore,
     type:types.PubkeyType = types.PubkeyType.secp256k1
-  ): string {
+  ): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -162,7 +162,7 @@ export class Keys {
     if (!this.client.config.keyDAO.encrypt) {
       throw new SdkError(`Encrypt method of KeyDAO not implemented`);
     }
-    const exists = this.client.config.keyDAO.read(name);
+    const exists = await this.client.config.keyDAO.read(name);
     if (exists) {
       throw new SdkError(`Key with name '${name}' already exists`);
     }
@@ -180,7 +180,7 @@ export class Keys {
     );
 
     // Save the key to app
-    this.client.config.keyDAO.write(name, {
+    await this.client.config.keyDAO.write(name, {
       address,
       privKey: encryptedPrivKey,
     });
@@ -198,12 +198,12 @@ export class Keys {
    * @returns Bech32 address
    * @since v0.17
    */
-  importPrivateKey(
+  async importPrivateKey(
     name: string,
     password: string,
     privateKey: string,
     type:types.PubkeyType = types.PubkeyType.secp256k1
-  ): string {
+  ): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -213,8 +213,8 @@ export class Keys {
     if (is.empty(privateKey)) {
       throw new SdkError(`privateKey can not be empty`);
     }
-    
-    const exists = this.client.config.keyDAO.read(name);
+
+    const exists = await this.client.config.keyDAO.read(name);
     if (exists) {
       throw new SdkError(`Key with name '${name}' already exists`);
     }
@@ -230,7 +230,7 @@ export class Keys {
       password
     );
     // Save the key to app
-    this.client.config.keyDAO.write(name, {
+    await this.client.config.keyDAO.write(name, {
       address,
       privKey: encryptedPrivKey,
     });
@@ -247,7 +247,7 @@ export class Keys {
    * @returns Keystore json
    * @since v0.17
    */
-  export(name: string, keyPassword: string, keystorePassword: string): string {
+  async export(name: string, keyPassword: string, keystorePassword: string): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -257,7 +257,7 @@ export class Keys {
     if (!this.client.config.keyDAO.decrypt) {
       throw new SdkError(`Decrypt method of KeyDAO not implemented`);
     }
-    const keyObj = this.client.config.keyDAO.read(name);
+    const keyObj = await this.client.config.keyDAO.read(name);
     if (!keyObj) {
       throw new SdkError(`Key with name '${name}' not found`);
     }
@@ -282,7 +282,7 @@ export class Keys {
    * @param password Password of the key
    * @since v0.17
    */
-  delete(name: string, password: string) {
+  async delete(name: string, password: string): Promise<void> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -292,7 +292,7 @@ export class Keys {
     if (!this.client.config.keyDAO.decrypt) {
       throw new SdkError(`Decrypt method of KeyDAO not implemented`);
     }
-    const keyObj = this.client.config.keyDAO.read(name);
+    const keyObj = await this.client.config.keyDAO.read(name);
     if (!keyObj) {
       throw new SdkError(`Key with name '${name}' not found`);
     }
@@ -301,7 +301,7 @@ export class Keys {
     this.client.config.keyDAO.decrypt(keyObj.privKey, password);
 
     // Delete the key from app
-    this.client.config.keyDAO.delete(name);
+    await this.client.config.keyDAO.delete(name);
   }
 
   /**
@@ -311,11 +311,11 @@ export class Keys {
    * @returns Bech32 address
    * @since v0.17
    */
-  show(name: string) {
+  async show(name: string): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
-    const keyObj = this.client.config.keyDAO.read(name);
+    const keyObj = await this.client.config.keyDAO.read(name);
     if (!keyObj) {
       throw new SdkError(`Key with name '${name}' not found`);
     }

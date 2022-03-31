@@ -55,7 +55,7 @@ class Coinswap {
      */
     deposit(request, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const from = this.client.keys.show(baseTx.from);
+            const from = yield this.client.keys.show(baseTx.from);
             const msgs = [new types_1.MsgAddLiquidity(request, from)];
             return this.client.tx.buildAndSend(msgs, baseTx);
         });
@@ -69,7 +69,7 @@ class Coinswap {
      */
     withdraw(request, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const from = this.client.keys.show(baseTx.from);
+            const from = yield this.client.keys.show(baseTx.from);
             const msgs = [new types_1.MsgRemoveLiquidity(request, from)];
             return this.client.tx.buildAndSend(msgs, baseTx);
         });

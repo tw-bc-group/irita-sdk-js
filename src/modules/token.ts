@@ -37,7 +37,7 @@ export class Token {
     },
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const owner = this.client.keys.show(baseTx.from);
+    const owner = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type: types.TxType.MsgIssueToken,
@@ -61,7 +61,7 @@ export class Token {
     },
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const owner = this.client.keys.show(baseTx.from);
+    const owner = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type: types.TxType.MsgEditToken,
@@ -85,7 +85,7 @@ export class Token {
     },
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const owner = this.client.keys.show(baseTx.from);
+    const owner = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type: types.TxType.MsgMintToken,
@@ -107,7 +107,7 @@ export class Token {
     },
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const owner = this.client.keys.show(baseTx.from);
+    const owner = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type: types.TxType.MsgTransferTokenOwner,

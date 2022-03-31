@@ -67,7 +67,7 @@ export class Coinswap {
     request: DepositRequest,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const from = this.client.keys.show(baseTx.from);
+    const from = await this.client.keys.show(baseTx.from);
     const msgs: types.Msg[] = [new MsgAddLiquidity(request, from)];
 
     return this.client.tx.buildAndSend(msgs, baseTx);
@@ -84,7 +84,7 @@ export class Coinswap {
     request: WithdrawRequest,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const from = this.client.keys.show(baseTx.from);
+    const from = await this.client.keys.show(baseTx.from);
     const msgs: types.Msg[] = [new MsgRemoveLiquidity(request, from)];
 
     return this.client.tx.buildAndSend(msgs, baseTx);

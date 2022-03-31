@@ -120,7 +120,7 @@ export class Tx {
       throw new SdkError(`Decrypt method of KeyDAO not implemented`);
     }
 
-    const keyObj = this.client.config.keyDAO.read(baseTx.from);
+    const keyObj = await this.client.config.keyDAO.read(baseTx.from);
     if (!keyObj) {
       throw new SdkError(`Key with name '${baseTx.from}' not found`);
     }
@@ -154,12 +154,12 @@ export class Tx {
    * @returns signature
    * @since v0.17
    */
-  sign_signDoc(
+  async sign_signDoc(
     signDoc: Uint8Array,
     name: string,
     password: string,
     type:types.PubkeyType = types.PubkeyType.secp256k1
-  ): string {
+  ): Promise<string> {
     if (is.empty(name)) {
       throw new SdkError(`Name of the key can not be empty`);
     }
@@ -170,7 +170,7 @@ export class Tx {
       throw new SdkError(`Decrypt method of KeyDAO not implemented`);
     }
 
-    const keyObj = this.client.config.keyDAO.read(name);
+    const keyObj = await this.client.config.keyDAO.read(name);
     if (!keyObj) {
       throw new SdkError(`Key with name '${name}' not found`);
     }

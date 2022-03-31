@@ -64,7 +64,7 @@ class Bank {
             if (!crypto_1.Crypto.checkAddress(to, this.client.config.bech32Prefix.AccAddr)) {
                 throw new errors_1.SdkError('Invalid bech32 address');
             }
-            const from = this.client.keys.show(baseTx.from);
+            const from = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgSend,
@@ -92,7 +92,7 @@ class Bank {
             if (!crypto_1.Crypto.checkAddress(to, this.client.config.bech32Prefix.AccAddr)) {
                 throw new errors_1.SdkError('Invalid bech32 address');
             }
-            const from = this.client.keys.show(baseTx.from);
+            const from = yield this.client.keys.show(baseTx.from);
             const coins = amount;
             const msgs = [
                 {

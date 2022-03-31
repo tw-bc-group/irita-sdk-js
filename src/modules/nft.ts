@@ -32,7 +32,7 @@ export class Nft {
     schema: string,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgIssueDenom,
@@ -71,7 +71,7 @@ export class Nft {
     if (recipient && !Crypto.checkAddress(recipient, this.client.config.bech32Prefix.AccAddr)) {
       throw new SdkError('recipient Invalid bech32 address');
     }
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     if (!recipient) {
       recipient = sender;
     }
@@ -108,7 +108,7 @@ export class Nft {
     new_property:{name?:string, uri?:string, data?:string},
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgEditNFT,
@@ -143,7 +143,7 @@ export class Nft {
     if (recipient && !Crypto.checkAddress(recipient, this.client.config.bech32Prefix.AccAddr)) {
       throw new SdkError('recipient Invalid bech32 address');
     }
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgTransferNFT,
@@ -172,7 +172,7 @@ export class Nft {
     denom_id:string,
     baseTx: types.BaseTx
   ): Promise<types.TxResult> {
-    const sender = this.client.keys.show(baseTx.from);
+    const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
       {
         type:types.TxType.MsgBurnNFT,

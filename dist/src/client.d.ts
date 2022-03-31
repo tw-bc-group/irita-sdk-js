@@ -129,20 +129,20 @@ export interface KeyDAO {
      * @param key The encrypted private key object
      * @throws `SdkError` if the save fails.
      */
-    write(name: string, key: types.Key): void;
+    write(name: string, key: types.Key): Promise<void>;
     /**
      * Get the encrypted private key by name
      *
      * @param name Name of the key
      * @returns The encrypted private key object or undefined
      */
-    read(name: string): types.Key;
+    read(name: string): Promise<types.Key>;
     /**
      * Delete the key by name
      * @param name Name of the key
      * @throws `SdkError` if the deletion fails.
      */
-    delete(name: string): void;
+    delete(name: string): Promise<void>;
     /**
      * Optional function to encrypt the private key by yourself. Default to AES Encryption
      * @param privKey The plain private key
@@ -172,9 +172,9 @@ export interface Bech32Prefix {
     ConsPub: string;
 }
 export declare class DefaultKeyDAOImpl implements KeyDAO {
-    write(name: string, key: types.Key): void;
-    read(name: string): types.Key;
-    delete(name: string): void;
+    write(name: string, key: types.Key): Promise<void>;
+    read(name: string): Promise<types.Key>;
+    delete(name: string): Promise<void>;
     encrypt(privKey: string, password: string): string;
     decrypt(encrptedPrivKey: string, password: string): string;
 }

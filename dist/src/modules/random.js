@@ -62,7 +62,7 @@ class Random {
      */
     request(blockInterval, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consumer = this.client.keys.show(baseTx.from);
+            const consumer = yield this.client.keys.show(baseTx.from);
             const msgs = [new random_1.MsgRequestRand(consumer, blockInterval)];
             return this.client.tx.buildAndSend(msgs, baseTx);
         });

@@ -37,7 +37,7 @@ class Contract {
      */
     storeCode(wasm_byte_code, option, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgStoreCode,
@@ -66,7 +66,7 @@ class Contract {
      */
     instantiateContract(code_id, init_msg, init_funds, label, admin = '', baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgInstantiateContract,
@@ -94,7 +94,7 @@ class Contract {
      */
     executeContract(contract, msg, sent_funds, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgExecuteContract,
@@ -120,7 +120,7 @@ class Contract {
      */
     migrateContract(contract, code_id, migrate_msg, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgMigrateContract,
@@ -145,7 +145,7 @@ class Contract {
      */
     updateAdmin(new_admin, contract, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgUpdateAdmin,
@@ -168,7 +168,7 @@ class Contract {
      */
     clearAdmin(contract, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const sender = this.client.keys.show(baseTx.from);
+            const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgClearAdmin,

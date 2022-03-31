@@ -15,7 +15,7 @@ export class Client {
 
   /** Axios client for tendermint rpc requests */
   rpcClient: RpcClient;
-  
+
   /** WebSocket event listener */
   eventListener: EventListener;
 
@@ -27,7 +27,7 @@ export class Client {
 
   /** Bank module */
   bank: modules.Bank;
-  
+
   /** Key management module */
   keys: modules.Keys;
 
@@ -113,7 +113,7 @@ export class Client {
     this.coinswap = new modules.Coinswap(this);
     this.contract = new modules.Contract(this);
     this.nft = new modules.Nft(this);
-    
+
     // Set default encrypt/decrypt methods
     if (!this.config.keyDAO.encrypt || !this.config.keyDAO.decrypt) {
       const defaultKeyDAO = new DefaultKeyDAOImpl();
@@ -260,7 +260,7 @@ export interface KeyDAO {
    * @param key The encrypted private key object
    * @throws `SdkError` if the save fails.
    */
-  write(name: string, key: types.Key): void;
+  write(name: string, key: types.Key): Promise<void>;
 
   /**
    * Get the encrypted private key by name
@@ -268,14 +268,14 @@ export interface KeyDAO {
    * @param name Name of the key
    * @returns The encrypted private key object or undefined
    */
-  read(name: string): types.Key;
+  read(name: string): Promise<types.Key>;
 
   /**
    * Delete the key by name
    * @param name Name of the key
    * @throws `SdkError` if the deletion fails.
    */
-  delete(name: string): void;
+  delete(name: string): Promise<void>;
 
   /**
    * Optional function to encrypt the private key by yourself. Default to AES Encryption
@@ -309,17 +309,17 @@ export interface Bech32Prefix {
 }
 
 export class DefaultKeyDAOImpl implements KeyDAO {
-  write(name: string, key: types.Key): void {
+  write(name: string, key: types.Key): Promise<void> {
     throw new SdkError(
       'Method not implemented. Please implement KeyDAO first.'
     );
   }
-  read(name: string): types.Key {
+  read(name: string): Promise<types.Key> {
     throw new SdkError(
       'Method not implemented. Please implement KeyDAO first.'
     );
   }
-  delete(name: string): void {
+  delete(name: string): Promise<void> {
     throw new SdkError(
       'Method not implemented. Please implement KeyDAO first.'
     );

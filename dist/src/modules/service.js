@@ -161,7 +161,7 @@ class Service {
      */
     defineService(definition, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const author = this.client.keys.show(baseTx.from);
+            const author = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgDefineService({
                     name: definition.name,
@@ -185,7 +185,7 @@ class Service {
      */
     bindService(binding, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const deposit = yield this.client.utils.toMinCoins(binding.deposit);
             const msgs = [
                 new service_1.MsgBindService({
@@ -208,7 +208,7 @@ class Service {
      */
     updateServiceBinding(binding, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const deposit = yield this.client.utils.toMinCoins(binding.deposit);
             const msgs = [
                 new service_1.MsgUpdateServiceBinding({
@@ -231,7 +231,7 @@ class Service {
      */
     disableServiceBinding(serviceName, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgDisableServiceBinding(serviceName, provider),
             ];
@@ -249,7 +249,7 @@ class Service {
      */
     enableServiceBinding(serviceName, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgEnableServiceBinding(serviceName, provider),
             ];
@@ -267,7 +267,7 @@ class Service {
      */
     invokeService(request, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            // const consumer = this.client.keys.show(baseTx.from);
+            // const consumer = await this.client.keys.show(baseTx.from);
             // const msgs: types.Msg[] = [
             //   new MsgRequestService({
             //     service_name: request.serviceName,
@@ -296,7 +296,7 @@ class Service {
      */
     setWithdrawAddress(withdrawAddress, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgSetServiceWithdrawAddress(withdrawAddress, provider),
             ];
@@ -313,7 +313,7 @@ class Service {
      */
     refundServiceDeposit(serviceName, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgRefundServiceDeposit(serviceName, provider),
             ];
@@ -330,7 +330,7 @@ class Service {
      */
     startRequestContext(requestContextID, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consumer = this.client.keys.show(baseTx.from);
+            const consumer = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgStartRequestContext(requestContextID, consumer),
             ];
@@ -347,7 +347,7 @@ class Service {
      */
     pauseRequestContext(requestContextID, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consumer = this.client.keys.show(baseTx.from);
+            const consumer = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgPauseRequestContext(requestContextID, consumer),
             ];
@@ -364,7 +364,7 @@ class Service {
      */
     killRequestContext(requestContextID, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consumer = this.client.keys.show(baseTx.from);
+            const consumer = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 new service_1.MsgKillRequestContext(requestContextID, consumer),
             ];
@@ -381,7 +381,7 @@ class Service {
      */
     updateRequestContext(request, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const consumer = this.client.keys.show(baseTx.from);
+            const consumer = yield this.client.keys.show(baseTx.from);
             const serviceFeeCap = request.service_fee_cap
                 ? yield this.client.utils.toMinCoins(request.service_fee_cap)
                 : [];
@@ -408,7 +408,7 @@ class Service {
      */
     withdrawEarnedFees(baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const provider = this.client.keys.show(baseTx.from);
+            const provider = yield this.client.keys.show(baseTx.from);
             const msgs = [new service_1.MsgWithdrawEarnedFees(provider)];
             return this.client.tx.buildAndSend(msgs, baseTx);
         });
@@ -423,7 +423,7 @@ class Service {
      */
     withdrawTax(destAddress, amount, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const trustee = this.client.keys.show(baseTx.from);
+            const trustee = yield this.client.keys.show(baseTx.from);
             const coins = yield this.client.utils.toMinCoins(amount);
             const msgs = [new service_1.MsgWithdrawTax(trustee, destAddress, coins)];
             return this.client.tx.buildAndSend(msgs, baseTx);

@@ -109,7 +109,7 @@ class Tx {
             if (!this.client.config.keyDAO.decrypt) {
                 throw new errors_1.SdkError(`Decrypt method of KeyDAO not implemented`);
             }
-            const keyObj = this.client.config.keyDAO.read(baseTx.from);
+            const keyObj = yield this.client.config.keyDAO.read(baseTx.from);
             if (!keyObj) {
                 throw new errors_1.SdkError(`Key with name '${baseTx.from}' not found`);
             }
@@ -146,22 +146,24 @@ class Tx {
      * @since v0.17
      */
     sign_signDoc(signDoc, name, password, type = types.PubkeyType.secp256k1) {
-        if (is.empty(name)) {
-            throw new errors_1.SdkError(`Name of the key can not be empty`);
-        }
-        if (is.empty(password)) {
-            throw new errors_1.SdkError(`Password of the key can not be empty`);
-        }
-        if (!this.client.config.keyDAO.decrypt) {
-            throw new errors_1.SdkError(`Decrypt method of KeyDAO not implemented`);
-        }
-        const keyObj = this.client.config.keyDAO.read(name);
-        if (!keyObj) {
-            throw new errors_1.SdkError(`Key with name '${name}' not found`);
-        }
-        const privKey = this.client.config.keyDAO.decrypt(keyObj.privKey, password);
-        const signature = utils_1.Crypto.generateSignature(signDoc, privKey, type);
-        return signature;
+        return __awaiter(this, void 0, void 0, function* () {
+            if (is.empty(name)) {
+                throw new errors_1.SdkError(`Name of the key can not be empty`);
+            }
+            if (is.empty(password)) {
+                throw new errors_1.SdkError(`Password of the key can not be empty`);
+            }
+            if (!this.client.config.keyDAO.decrypt) {
+                throw new errors_1.SdkError(`Decrypt method of KeyDAO not implemented`);
+            }
+            const keyObj = yield this.client.config.keyDAO.read(name);
+            if (!keyObj) {
+                throw new errors_1.SdkError(`Key with name '${name}' not found`);
+            }
+            const privKey = this.client.config.keyDAO.decrypt(keyObj.privKey, password);
+            const signature = utils_1.Crypto.generateSignature(signDoc, privKey, type);
+            return signature;
+        });
     }
     /**
      * Broadcast tx async

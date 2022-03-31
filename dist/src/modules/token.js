@@ -33,7 +33,7 @@ class Token {
      */
     issueToken(token, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const owner = this.client.keys.show(baseTx.from);
+            const owner = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgIssueToken,
@@ -50,7 +50,7 @@ class Token {
      */
     editToken(token, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const owner = this.client.keys.show(baseTx.from);
+            const owner = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgEditToken,
@@ -67,7 +67,7 @@ class Token {
      */
     mintToken(token, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const owner = this.client.keys.show(baseTx.from);
+            const owner = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgMintToken,
@@ -84,7 +84,7 @@ class Token {
      */
     transferTokenOwner(token, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
-            const owner = this.client.keys.show(baseTx.from);
+            const owner = yield this.client.keys.show(baseTx.from);
             const msgs = [
                 {
                     type: types.TxType.MsgTransferTokenOwner,
