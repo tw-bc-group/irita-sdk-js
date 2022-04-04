@@ -22,6 +22,8 @@ class MsgIssueDenom extends index_1.Msg {
         msg.setName(this.value.name);
         msg.setSchema(this.value.schema);
         msg.setSender(this.value.sender);
+        msg.setMintRestricted(this.value.mintRestricted);
+        msg.setUpdateRestricted(this.value.updateRestricted);
         return msg;
     }
     Validate() {

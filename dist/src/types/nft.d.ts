@@ -7,6 +7,8 @@ export interface IssueDenomParam {
     name: string;
     schema: string;
     sender: string;
+    mintRestricted: boolean;
+    updateRestricted: boolean;
 }
 /**
  * Msg for issue denom

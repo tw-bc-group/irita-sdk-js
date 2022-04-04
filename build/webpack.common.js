@@ -20,11 +20,6 @@ module.exports = {
           "stream": false,
       },
     },
-    externals: {
-      bufferutil: "bufferutil",
-      "utf-8-validate": "utf-8-validate",
-      uuid: "uuid",
-    },
     module: {
         rules: [{
             test: /\.ts$/,

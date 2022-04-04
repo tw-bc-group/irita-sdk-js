@@ -33,7 +33,7 @@ class Nft {
      * @returns
      * @since v0.17
      */
-    issueDenom(id, name, schema, baseTx) {
+    issueDenom(id, name, schema, mintRestricted, updateRestricted, baseTx) {
         return __awaiter(this, void 0, void 0, function* () {
             const sender = yield this.client.keys.show(baseTx.from);
             const msgs = [
@@ -43,7 +43,9 @@ class Nft {
                         id,
                         name,
                         schema,
-                        sender
+                        sender,
+                        mintRestricted,
+                        updateRestricted,
                     }
                 }
             ];

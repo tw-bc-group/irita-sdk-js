@@ -20,7 +20,7 @@ export declare class Nft {
      * @returns
      * @since v0.17
      */
-    issueDenom(id: string, name: string, schema: string, baseTx: types.BaseTx): Promise<types.TxResult>;
+    issueDenom(id: string, name: string, schema: string, mintRestricted: boolean, updateRestricted: boolean, baseTx: types.BaseTx): Promise<types.TxResult>;
     /**
      * mint NFT
      * @param id string
