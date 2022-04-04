@@ -15,7 +15,7 @@ describe('Bank Tests', () => {
           },
         ];
 
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.send(
             'iaa14x8a7y88py9xkvkxzld3jxhgpjpm03whruzwzp',
             amount,
@@ -43,7 +43,7 @@ describe('Bank Tests', () => {
           },
         ];
 
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.multiSend(
             'iaa1gytgufwqkz9tmhjgljfxd3qcwpdzymj6022q3w',
             amount,
@@ -64,7 +64,7 @@ describe('Bank Tests', () => {
     test(
       'query account',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.queryAccount('iaa1eqvkfthtrr93g4p9qspp54w6dtjtrn27ar7rpw')
           .then(res => {
             console.log(JSON.stringify(res));
@@ -79,7 +79,7 @@ describe('Bank Tests', () => {
     test(
       'query Balance',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.queryBalance('iaa1eqvkfthtrr93g4p9qspp54w6dtjtrn27ar7rpw','stake')
           .then(res => {
             console.log(JSON.stringify(res));
@@ -94,7 +94,7 @@ describe('Bank Tests', () => {
     test(
       'query All Balances',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.queryAllBalances('iaa1eqvkfthtrr93g4p9qspp54w6dtjtrn27ar7rpw')
           .then(res => {
             console.log(JSON.stringify(res));
@@ -109,7 +109,7 @@ describe('Bank Tests', () => {
     test(
       'query Total Supply',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.queryTotalSupply()
           .then(res => {
             console.log(JSON.stringify(res));
@@ -120,11 +120,11 @@ describe('Bank Tests', () => {
       },
       timeout
     );
-    
+
     test(
       'query Supply Of',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.querySupplyOf('btc')
           .then(res => {
             console.log(JSON.stringify(res));
@@ -139,7 +139,7 @@ describe('Bank Tests', () => {
     test(
       'query All Balances',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .bank.queryParams()
           .then(res => {
             console.log(JSON.stringify(res));

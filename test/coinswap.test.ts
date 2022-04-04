@@ -2,7 +2,7 @@ import { BaseTest } from './basetest';
 describe('Coinswap Tests', () => {
   describe('Query Liquidity', () => {
     test('query liquidity', async () => {
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.queryLiquidity('uni:transfer/ztezqumzyz/ubtc')
         .then(res => {
           console.log(JSON.stringify(res));
@@ -14,7 +14,7 @@ describe('Coinswap Tests', () => {
   });
   describe('Calculate', () => {
     test('calculateDeposit', async () => {
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.calculateDeposit(1, 'transfer/irishubchan/uatom')
         .then(res => {
           console.log(JSON.stringify(res));
@@ -24,7 +24,7 @@ describe('Coinswap Tests', () => {
         });
     });
     test('calculateWithdraw', async () => {
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.calculateWithdraw({
           denom: 'uni:transfer/irishubchan/uatom',
           amount: '1',
@@ -37,7 +37,7 @@ describe('Coinswap Tests', () => {
         });
     });
     test('calculateWithExactInput', async () => {
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.calculateWithExactInput(
           { denom: 'transfer/irishubchan/uatom', amount: '10' },
           'transfer/ztezqumzyz/ubtc'
@@ -50,7 +50,7 @@ describe('Coinswap Tests', () => {
         });
     });
     test('calculateWithExactOutput', async () => {
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.calculateWithExactOutput(
           { denom: 'transfer/iriscosmoschan/uatom', amount: '100' },
           'uiris'
@@ -65,10 +65,10 @@ describe('Coinswap Tests', () => {
   });
   describe('Add Liquidity', () => {
     test('add liquidity', async () => {
-      const btc = await BaseTest.getClient()
+      const btc = await(await BaseTest.getClient())
         .coinswap.calculateWithExactInput({denom: 'uiris', amount: '10000'}, 'transfer/ztezqumzyz/ubtc');
         console.log(btc)
-      await BaseTest.getClient()
+      await(await BaseTest.getClient())
         .coinswap.deposit(
           {
             exact_standard_amt: 10000,

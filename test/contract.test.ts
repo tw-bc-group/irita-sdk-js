@@ -18,7 +18,7 @@ describe('Construct Tests', () => {
           },
         ];
 
-        const code:any =  await BaseTest.getClient()
+        const code:any =  await(await BaseTest.getClient())
           .contract.storeCode(
             wasmCode,
             {},
@@ -45,7 +45,7 @@ describe('Construct Tests', () => {
           ]
         };
 
-        const instantiate = await BaseTest.getClient()
+        const instantiate = await(await BaseTest.getClient())
           .contract.instantiateContract(
             code_id,
             Buffer.from(JSON.stringify(InstantiateMsg)),
@@ -70,7 +70,7 @@ describe('Construct Tests', () => {
             candidate:'iaa1qvty8x0c78am8c44zv2n7tgm6gfqt78j0verqa',
           }
         }
-        const execute = await BaseTest.getClient()
+        const execute = await(await BaseTest.getClient())
           .contract.executeContract(
             'iaa1hqrdl6wstt8qzshwc6mrumpjk9338k0lkhd3yu',
             Buffer.from(JSON.stringify(executeMsg)),
@@ -94,7 +94,7 @@ describe('Construct Tests', () => {
   //           candidate:'iaa1qvty8x0c78am8c44zv2n7tgm6gfqt78j0verqa',
   //         }
   //       }
-  //       await BaseTest.getClient()
+  //       await(await BaseTest.getClient())
   //         .contract.migrateContract(
   //           'iaa1hqrdl6wstt8qzshwc6mrumpjk9338k0lkhd3yu',
   //           1,
@@ -116,7 +116,7 @@ describe('Construct Tests', () => {
   //   test(
   //     'update Admin',
   //     async () => {
-  //       await BaseTest.getClient()
+  //       await(await BaseTest.getClient())
   //         .contract.updateAdmin(
   //           'new_admin',
   //           'contract',
@@ -137,7 +137,7 @@ describe('Construct Tests', () => {
   //   test(
   //     'clear Admin',
   //     async () => {
-  //       await BaseTest.getClient()
+  //       await(await BaseTest.getClient())
   //         .contract.clearAdmin(
   //           'contract',
   //           BaseTest.baseTx
@@ -157,7 +157,7 @@ describe('Construct Tests', () => {
     test(
       'query Contract Info',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.contractInfo(
             'iaa1uq0haxdf5cgg7s76frd3rtnr0trzaazyhf4rqc',
           )
@@ -174,7 +174,7 @@ describe('Construct Tests', () => {
     test(
       'query contract History',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.contractHistory(
             'iaa1uq0haxdf5cgg7s76frd3rtnr0trzaazyhf4rqc',
           )
@@ -191,7 +191,7 @@ describe('Construct Tests', () => {
     test(
       'query contracts By Code',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.contractsByCode(
             1,
           )
@@ -208,7 +208,7 @@ describe('Construct Tests', () => {
     test(
       'query all Contract State',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.allContractState(
             'iaa18vd8fpwxzck93qlwghaj6arh4p7c5n89fqcgm9',
           )
@@ -225,7 +225,7 @@ describe('Construct Tests', () => {
     test(
       'query raw Contract State',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.rawContractState(
             'iaa18vd8fpwxzck93qlwghaj6arh4p7c5n89fqcgm9',
             Buffer.from('')
@@ -243,7 +243,7 @@ describe('Construct Tests', () => {
     test(
       'query smart Contract State',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.smartContractState(
             'iaa18vd8fpwxzck93qlwghaj6arh4p7c5n89fqcgm9',
             Buffer.from('')
@@ -261,7 +261,7 @@ describe('Construct Tests', () => {
     test(
       'query code',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.code(1)
           .then(res => {
             console.log(res);
@@ -276,7 +276,7 @@ describe('Construct Tests', () => {
     test(
       'query code',
       async () => {
-        await BaseTest.getClient()
+        await(await BaseTest.getClient())
           .contract.codes()
           .then(res => {
             console.log(res);

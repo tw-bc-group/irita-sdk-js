@@ -11,13 +11,13 @@ export class Consts {
 /** Test KeyDAO */
 export class TestKeyDAO implements iris.KeyDAO {
   keyMap: { [key: string]: types.Key } = {};
-  write(name: string, key: types.Key) {
+  async write(name: string, key: types.Key) {
     this.keyMap[name] = key;
   }
-  read(name: string): types.Key {
+  async read(name: string): Promise<types.Key> {
     return this.keyMap[name];
   }
-  delete(name: string) {
+  async delete(name: string) {
     delete this.keyMap[name];
   }
 }
@@ -30,7 +30,7 @@ export class BaseTest {
     pubkeyType:types.PubkeyType.sm2
   };
 
-  static getClient(): Client {
+  static async getClient(): Promise<Client> {
     let config = {
         node: 'http://10.1.4.101:26657',
         network: iris.Network.Mainnet,
@@ -60,7 +60,7 @@ export class BaseTest {
     //   'case divide galaxy brain mother bicycle sketch utility shaft resource virus swear slender evidence valid brain lonely grief join build civil update muffin swarm'
     // );
 
-    client.keys.importPrivateKey(
+    await client.keys.importPrivateKey(
       Consts.keyName,
       Consts.keyPassword,
       privateKey,
