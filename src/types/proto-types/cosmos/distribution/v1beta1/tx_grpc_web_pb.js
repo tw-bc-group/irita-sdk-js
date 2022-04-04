@@ -27,7 +27,7 @@ proto.cosmos.distribution.v1beta1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -35,7 +35,7 @@ proto.cosmos.distribution.v1beta1 = require('./tx_pb.js');
 proto.cosmos.distribution.v1beta1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -53,7 +53,7 @@ proto.cosmos.distribution.v1beta1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -61,7 +61,7 @@ proto.cosmos.distribution.v1beta1.MsgClient =
 proto.cosmos.distribution.v1beta1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -99,30 +99,11 @@ const methodDescriptor_Msg_SetWithdrawAddress = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddress,
- *   !proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse>}
- */
-const methodInfo_Msg_SetWithdrawAddress = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse,
-  /**
-   * @param {!proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddress} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddress} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -141,7 +122,7 @@ proto.cosmos.distribution.v1beta1.MsgClient.prototype.setWithdrawAddress =
 /**
  * @param {!proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddress} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponse>}
  *     Promise that resolves to the response
@@ -179,30 +160,11 @@ const methodDescriptor_Msg_WithdrawDelegatorReward = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward,
- *   !proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse>}
- */
-const methodInfo_Msg_WithdrawDelegatorReward = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse,
-  /**
-   * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -221,7 +183,7 @@ proto.cosmos.distribution.v1beta1.MsgClient.prototype.withdrawDelegatorReward =
 /**
  * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponse>}
  *     Promise that resolves to the response
@@ -259,30 +221,11 @@ const methodDescriptor_Msg_WithdrawValidatorCommission = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission,
- *   !proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse>}
- */
-const methodInfo_Msg_WithdrawValidatorCommission = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse,
-  /**
-   * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -301,7 +244,7 @@ proto.cosmos.distribution.v1beta1.MsgClient.prototype.withdrawValidatorCommissio
 /**
  * @param {!proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponse>}
  *     Promise that resolves to the response
@@ -339,30 +282,11 @@ const methodDescriptor_Msg_FundCommunityPool = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.distribution.v1beta1.MsgFundCommunityPool,
- *   !proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse>}
- */
-const methodInfo_Msg_FundCommunityPool = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse,
-  /**
-   * @param {!proto.cosmos.distribution.v1beta1.MsgFundCommunityPool} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.distribution.v1beta1.MsgFundCommunityPool} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -381,7 +305,7 @@ proto.cosmos.distribution.v1beta1.MsgClient.prototype.fundCommunityPool =
 /**
  * @param {!proto.cosmos.distribution.v1beta1.MsgFundCommunityPool} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.distribution.v1beta1.MsgFundCommunityPoolResponse>}
  *     Promise that resolves to the response

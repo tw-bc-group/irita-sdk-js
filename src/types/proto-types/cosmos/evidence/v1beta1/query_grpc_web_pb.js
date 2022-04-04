@@ -31,7 +31,7 @@ proto.cosmos.evidence.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -39,7 +39,7 @@ proto.cosmos.evidence.v1beta1 = require('./query_pb.js');
 proto.cosmos.evidence.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -57,7 +57,7 @@ proto.cosmos.evidence.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -65,7 +65,7 @@ proto.cosmos.evidence.v1beta1.QueryClient =
 proto.cosmos.evidence.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -103,30 +103,11 @@ const methodDescriptor_Query_Evidence = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.evidence.v1beta1.QueryEvidenceRequest,
- *   !proto.cosmos.evidence.v1beta1.QueryEvidenceResponse>}
- */
-const methodInfo_Query_Evidence = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.evidence.v1beta1.QueryEvidenceResponse,
-  /**
-   * @param {!proto.cosmos.evidence.v1beta1.QueryEvidenceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.evidence.v1beta1.QueryEvidenceResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.evidence.v1beta1.QueryEvidenceRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.evidence.v1beta1.QueryEvidenceResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.evidence.v1beta1.QueryEvidenceResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.evidence.v1beta1.QueryEvidenceResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -145,7 +126,7 @@ proto.cosmos.evidence.v1beta1.QueryClient.prototype.evidence =
 /**
  * @param {!proto.cosmos.evidence.v1beta1.QueryEvidenceRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.evidence.v1beta1.QueryEvidenceResponse>}
  *     Promise that resolves to the response
@@ -183,30 +164,11 @@ const methodDescriptor_Query_AllEvidence = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.evidence.v1beta1.QueryAllEvidenceRequest,
- *   !proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse>}
- */
-const methodInfo_Query_AllEvidence = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse,
-  /**
-   * @param {!proto.cosmos.evidence.v1beta1.QueryAllEvidenceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.evidence.v1beta1.QueryAllEvidenceRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -225,7 +187,7 @@ proto.cosmos.evidence.v1beta1.QueryClient.prototype.allEvidence =
 /**
  * @param {!proto.cosmos.evidence.v1beta1.QueryAllEvidenceRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.evidence.v1beta1.QueryAllEvidenceResponse>}
  *     Promise that resolves to the response

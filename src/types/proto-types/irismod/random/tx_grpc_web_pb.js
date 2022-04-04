@@ -26,7 +26,7 @@ proto.irismod.random = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.random = require('./tx_pb.js');
 proto.irismod.random.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.random.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.random.MsgClient =
 proto.irismod.random.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Msg_RequestRandom = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.random.MsgRequestRandom,
- *   !proto.irismod.random.MsgRequestRandomResponse>}
- */
-const methodInfo_Msg_RequestRandom = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.random.MsgRequestRandomResponse,
-  /**
-   * @param {!proto.irismod.random.MsgRequestRandom} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.random.MsgRequestRandomResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.random.MsgRequestRandom} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.random.MsgRequestRandomResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.random.MsgRequestRandomResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.random.MsgRequestRandomResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.random.MsgClient.prototype.requestRandom =
 /**
  * @param {!proto.irismod.random.MsgRequestRandom} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.random.MsgRequestRandomResponse>}
  *     Promise that resolves to the response

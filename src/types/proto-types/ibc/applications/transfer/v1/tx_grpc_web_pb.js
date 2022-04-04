@@ -30,7 +30,7 @@ proto.ibc.applications.transfer.v1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -38,7 +38,7 @@ proto.ibc.applications.transfer.v1 = require('./tx_pb.js');
 proto.ibc.applications.transfer.v1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -56,7 +56,7 @@ proto.ibc.applications.transfer.v1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -64,7 +64,7 @@ proto.ibc.applications.transfer.v1.MsgClient =
 proto.ibc.applications.transfer.v1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -102,30 +102,11 @@ const methodDescriptor_Msg_Transfer = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.applications.transfer.v1.MsgTransfer,
- *   !proto.ibc.applications.transfer.v1.MsgTransferResponse>}
- */
-const methodInfo_Msg_Transfer = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.applications.transfer.v1.MsgTransferResponse,
-  /**
-   * @param {!proto.ibc.applications.transfer.v1.MsgTransfer} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.applications.transfer.v1.MsgTransferResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.applications.transfer.v1.MsgTransfer} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.applications.transfer.v1.MsgTransferResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.MsgTransferResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.MsgTransferResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -144,7 +125,7 @@ proto.ibc.applications.transfer.v1.MsgClient.prototype.transfer =
 /**
  * @param {!proto.ibc.applications.transfer.v1.MsgTransfer} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.applications.transfer.v1.MsgTransferResponse>}
  *     Promise that resolves to the response

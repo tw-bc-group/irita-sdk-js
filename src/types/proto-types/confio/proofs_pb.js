@@ -2,15 +2,24 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.ics23.BatchEntry', null, global);
 goog.exportSymbol('proto.ics23.BatchEntry.ProofCase', null, global);
@@ -2066,8 +2075,10 @@ proto.ics23.InnerSpec.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setChildOrderList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addChildOrder(values[i]);
+      }
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
@@ -3236,8 +3247,10 @@ proto.ics23.CompressedExistenceProof.deserializeBinaryFromReader = function(msg,
       msg.setLeaf(value);
       break;
     case 4:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setPathList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addPath(values[i]);
+      }
       break;
     default:
       reader.skipField();

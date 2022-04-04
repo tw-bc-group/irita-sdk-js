@@ -24,7 +24,7 @@ proto.irismod.token = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -32,7 +32,7 @@ proto.irismod.token = require('./tx_pb.js');
 proto.irismod.token.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -50,7 +50,7 @@ proto.irismod.token.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -58,7 +58,7 @@ proto.irismod.token.MsgClient =
 proto.irismod.token.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -96,30 +96,11 @@ const methodDescriptor_Msg_IssueToken = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.MsgIssueToken,
- *   !proto.irismod.token.MsgIssueTokenResponse>}
- */
-const methodInfo_Msg_IssueToken = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.MsgIssueTokenResponse,
-  /**
-   * @param {!proto.irismod.token.MsgIssueToken} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.MsgIssueTokenResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.MsgIssueToken} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.MsgIssueTokenResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.MsgIssueTokenResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.MsgIssueTokenResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -138,7 +119,7 @@ proto.irismod.token.MsgClient.prototype.issueToken =
 /**
  * @param {!proto.irismod.token.MsgIssueToken} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.MsgIssueTokenResponse>}
  *     Promise that resolves to the response
@@ -176,30 +157,11 @@ const methodDescriptor_Msg_EditToken = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.MsgEditToken,
- *   !proto.irismod.token.MsgEditTokenResponse>}
- */
-const methodInfo_Msg_EditToken = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.MsgEditTokenResponse,
-  /**
-   * @param {!proto.irismod.token.MsgEditToken} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.MsgEditTokenResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.MsgEditToken} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.MsgEditTokenResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.MsgEditTokenResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.MsgEditTokenResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -218,7 +180,7 @@ proto.irismod.token.MsgClient.prototype.editToken =
 /**
  * @param {!proto.irismod.token.MsgEditToken} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.MsgEditTokenResponse>}
  *     Promise that resolves to the response
@@ -256,30 +218,11 @@ const methodDescriptor_Msg_MintToken = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.MsgMintToken,
- *   !proto.irismod.token.MsgMintTokenResponse>}
- */
-const methodInfo_Msg_MintToken = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.MsgMintTokenResponse,
-  /**
-   * @param {!proto.irismod.token.MsgMintToken} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.MsgMintTokenResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.MsgMintToken} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.MsgMintTokenResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.MsgMintTokenResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.MsgMintTokenResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -298,7 +241,7 @@ proto.irismod.token.MsgClient.prototype.mintToken =
 /**
  * @param {!proto.irismod.token.MsgMintToken} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.MsgMintTokenResponse>}
  *     Promise that resolves to the response
@@ -336,30 +279,11 @@ const methodDescriptor_Msg_TransferTokenOwner = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.MsgTransferTokenOwner,
- *   !proto.irismod.token.MsgTransferTokenOwnerResponse>}
- */
-const methodInfo_Msg_TransferTokenOwner = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.MsgTransferTokenOwnerResponse,
-  /**
-   * @param {!proto.irismod.token.MsgTransferTokenOwner} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.MsgTransferTokenOwnerResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.MsgTransferTokenOwner} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.MsgTransferTokenOwnerResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.MsgTransferTokenOwnerResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.MsgTransferTokenOwnerResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -378,7 +302,7 @@ proto.irismod.token.MsgClient.prototype.transferTokenOwner =
 /**
  * @param {!proto.irismod.token.MsgTransferTokenOwner} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.MsgTransferTokenOwnerResponse>}
  *     Promise that resolves to the response

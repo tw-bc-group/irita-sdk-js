@@ -29,7 +29,7 @@ proto.cosmos.evidence.v1beta1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -37,7 +37,7 @@ proto.cosmos.evidence.v1beta1 = require('./tx_pb.js');
 proto.cosmos.evidence.v1beta1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -55,7 +55,7 @@ proto.cosmos.evidence.v1beta1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -63,7 +63,7 @@ proto.cosmos.evidence.v1beta1.MsgClient =
 proto.cosmos.evidence.v1beta1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -101,30 +101,11 @@ const methodDescriptor_Msg_SubmitEvidence = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.evidence.v1beta1.MsgSubmitEvidence,
- *   !proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse>}
- */
-const methodInfo_Msg_SubmitEvidence = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse,
-  /**
-   * @param {!proto.cosmos.evidence.v1beta1.MsgSubmitEvidence} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.evidence.v1beta1.MsgSubmitEvidence} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -143,7 +124,7 @@ proto.cosmos.evidence.v1beta1.MsgClient.prototype.submitEvidence =
 /**
  * @param {!proto.cosmos.evidence.v1beta1.MsgSubmitEvidence} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.evidence.v1beta1.MsgSubmitEvidenceResponse>}
  *     Promise that resolves to the response

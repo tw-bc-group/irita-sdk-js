@@ -25,7 +25,7 @@ proto.cosmos.slashing.v1beta1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -33,7 +33,7 @@ proto.cosmos.slashing.v1beta1 = require('./tx_pb.js');
 proto.cosmos.slashing.v1beta1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -51,7 +51,7 @@ proto.cosmos.slashing.v1beta1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -59,7 +59,7 @@ proto.cosmos.slashing.v1beta1.MsgClient =
 proto.cosmos.slashing.v1beta1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -97,30 +97,11 @@ const methodDescriptor_Msg_Unjail = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.slashing.v1beta1.MsgUnjail,
- *   !proto.cosmos.slashing.v1beta1.MsgUnjailResponse>}
- */
-const methodInfo_Msg_Unjail = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.slashing.v1beta1.MsgUnjailResponse,
-  /**
-   * @param {!proto.cosmos.slashing.v1beta1.MsgUnjail} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.slashing.v1beta1.MsgUnjailResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.slashing.v1beta1.MsgUnjail} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.slashing.v1beta1.MsgUnjailResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.slashing.v1beta1.MsgUnjailResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.slashing.v1beta1.MsgUnjailResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -139,7 +120,7 @@ proto.cosmos.slashing.v1beta1.MsgClient.prototype.unjail =
 /**
  * @param {!proto.cosmos.slashing.v1beta1.MsgUnjail} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.slashing.v1beta1.MsgUnjailResponse>}
  *     Promise that resolves to the response

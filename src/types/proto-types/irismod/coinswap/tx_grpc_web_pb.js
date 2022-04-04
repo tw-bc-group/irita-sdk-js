@@ -28,7 +28,7 @@ proto.irismod.coinswap = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.irismod.coinswap = require('./tx_pb.js');
 proto.irismod.coinswap.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.irismod.coinswap.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.irismod.coinswap.MsgClient =
 proto.irismod.coinswap.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_Msg_AddLiquidity = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.coinswap.MsgAddLiquidity,
- *   !proto.irismod.coinswap.MsgAddLiquidityResponse>}
- */
-const methodInfo_Msg_AddLiquidity = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.coinswap.MsgAddLiquidityResponse,
-  /**
-   * @param {!proto.irismod.coinswap.MsgAddLiquidity} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.coinswap.MsgAddLiquidityResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.coinswap.MsgAddLiquidity} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.coinswap.MsgAddLiquidityResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.coinswap.MsgAddLiquidityResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.coinswap.MsgAddLiquidityResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.irismod.coinswap.MsgClient.prototype.addLiquidity =
 /**
  * @param {!proto.irismod.coinswap.MsgAddLiquidity} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.coinswap.MsgAddLiquidityResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_Msg_RemoveLiquidity = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.coinswap.MsgRemoveLiquidity,
- *   !proto.irismod.coinswap.MsgRemoveLiquidityResponse>}
- */
-const methodInfo_Msg_RemoveLiquidity = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.coinswap.MsgRemoveLiquidityResponse,
-  /**
-   * @param {!proto.irismod.coinswap.MsgRemoveLiquidity} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.coinswap.MsgRemoveLiquidityResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.coinswap.MsgRemoveLiquidity} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.coinswap.MsgRemoveLiquidityResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.coinswap.MsgRemoveLiquidityResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.coinswap.MsgRemoveLiquidityResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.irismod.coinswap.MsgClient.prototype.removeLiquidity =
 /**
  * @param {!proto.irismod.coinswap.MsgRemoveLiquidity} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.coinswap.MsgRemoveLiquidityResponse>}
  *     Promise that resolves to the response
@@ -260,30 +222,11 @@ const methodDescriptor_Msg_SwapCoin = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.coinswap.MsgSwapOrder,
- *   !proto.irismod.coinswap.MsgSwapCoinResponse>}
- */
-const methodInfo_Msg_SwapCoin = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.coinswap.MsgSwapCoinResponse,
-  /**
-   * @param {!proto.irismod.coinswap.MsgSwapOrder} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.coinswap.MsgSwapCoinResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.coinswap.MsgSwapOrder} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.coinswap.MsgSwapCoinResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.coinswap.MsgSwapCoinResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.coinswap.MsgSwapCoinResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -302,7 +245,7 @@ proto.irismod.coinswap.MsgClient.prototype.swapCoin =
 /**
  * @param {!proto.irismod.coinswap.MsgSwapOrder} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.coinswap.MsgSwapCoinResponse>}
  *     Promise that resolves to the response

@@ -31,7 +31,7 @@ proto.cosmos.slashing.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -39,7 +39,7 @@ proto.cosmos.slashing.v1beta1 = require('./query_pb.js');
 proto.cosmos.slashing.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -57,7 +57,7 @@ proto.cosmos.slashing.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -65,7 +65,7 @@ proto.cosmos.slashing.v1beta1.QueryClient =
 proto.cosmos.slashing.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -103,30 +103,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.slashing.v1beta1.QueryParamsRequest,
- *   !proto.cosmos.slashing.v1beta1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.slashing.v1beta1.QueryParamsResponse,
-  /**
-   * @param {!proto.cosmos.slashing.v1beta1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.slashing.v1beta1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.slashing.v1beta1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.slashing.v1beta1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.slashing.v1beta1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.slashing.v1beta1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -145,7 +126,7 @@ proto.cosmos.slashing.v1beta1.QueryClient.prototype.params =
 /**
  * @param {!proto.cosmos.slashing.v1beta1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.slashing.v1beta1.QueryParamsResponse>}
  *     Promise that resolves to the response
@@ -183,30 +164,11 @@ const methodDescriptor_Query_SigningInfo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.slashing.v1beta1.QuerySigningInfoRequest,
- *   !proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse>}
- */
-const methodInfo_Query_SigningInfo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse,
-  /**
-   * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfoRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfoRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -225,7 +187,7 @@ proto.cosmos.slashing.v1beta1.QueryClient.prototype.signingInfo =
 /**
  * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfoRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.slashing.v1beta1.QuerySigningInfoResponse>}
  *     Promise that resolves to the response
@@ -263,30 +225,11 @@ const methodDescriptor_Query_SigningInfos = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.slashing.v1beta1.QuerySigningInfosRequest,
- *   !proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse>}
- */
-const methodInfo_Query_SigningInfos = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse,
-  /**
-   * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfosRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfosRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -305,7 +248,7 @@ proto.cosmos.slashing.v1beta1.QueryClient.prototype.signingInfos =
 /**
  * @param {!proto.cosmos.slashing.v1beta1.QuerySigningInfosRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.slashing.v1beta1.QuerySigningInfosResponse>}
  *     Promise that resolves to the response

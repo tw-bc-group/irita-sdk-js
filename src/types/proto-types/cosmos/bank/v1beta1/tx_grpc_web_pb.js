@@ -29,7 +29,7 @@ proto.cosmos.bank.v1beta1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -37,7 +37,7 @@ proto.cosmos.bank.v1beta1 = require('./tx_pb.js');
 proto.cosmos.bank.v1beta1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -55,7 +55,7 @@ proto.cosmos.bank.v1beta1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -63,7 +63,7 @@ proto.cosmos.bank.v1beta1.MsgClient =
 proto.cosmos.bank.v1beta1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -101,30 +101,11 @@ const methodDescriptor_Msg_Send = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.MsgSend,
- *   !proto.cosmos.bank.v1beta1.MsgSendResponse>}
- */
-const methodInfo_Msg_Send = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.MsgSendResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.MsgSend} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.MsgSendResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.MsgSend} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.MsgSendResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.MsgSendResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.MsgSendResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -143,7 +124,7 @@ proto.cosmos.bank.v1beta1.MsgClient.prototype.send =
 /**
  * @param {!proto.cosmos.bank.v1beta1.MsgSend} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.MsgSendResponse>}
  *     Promise that resolves to the response
@@ -181,30 +162,11 @@ const methodDescriptor_Msg_MultiSend = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.MsgMultiSend,
- *   !proto.cosmos.bank.v1beta1.MsgMultiSendResponse>}
- */
-const methodInfo_Msg_MultiSend = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.MsgMultiSendResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.MsgMultiSend} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.MsgMultiSendResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.MsgMultiSend} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.MsgMultiSendResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.MsgMultiSendResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.MsgMultiSendResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -223,7 +185,7 @@ proto.cosmos.bank.v1beta1.MsgClient.prototype.multiSend =
 /**
  * @param {!proto.cosmos.bank.v1beta1.MsgMultiSend} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.MsgMultiSendResponse>}
  *     Promise that resolves to the response

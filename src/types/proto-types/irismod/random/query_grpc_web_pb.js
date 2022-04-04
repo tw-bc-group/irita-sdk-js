@@ -28,7 +28,7 @@ proto.irismod.random = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.irismod.random = require('./query_pb.js');
 proto.irismod.random.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.irismod.random.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.irismod.random.QueryClient =
 proto.irismod.random.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_Query_Random = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.random.QueryRandomRequest,
- *   !proto.irismod.random.QueryRandomResponse>}
- */
-const methodInfo_Query_Random = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.random.QueryRandomResponse,
-  /**
-   * @param {!proto.irismod.random.QueryRandomRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.random.QueryRandomResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.random.QueryRandomRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.random.QueryRandomResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.random.QueryRandomResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.random.QueryRandomResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.irismod.random.QueryClient.prototype.random =
 /**
  * @param {!proto.irismod.random.QueryRandomRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.random.QueryRandomResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_Query_RandomRequestQueue = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.random.QueryRandomRequestQueueRequest,
- *   !proto.irismod.random.QueryRandomRequestQueueResponse>}
- */
-const methodInfo_Query_RandomRequestQueue = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.random.QueryRandomRequestQueueResponse,
-  /**
-   * @param {!proto.irismod.random.QueryRandomRequestQueueRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.random.QueryRandomRequestQueueResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.random.QueryRandomRequestQueueRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.random.QueryRandomRequestQueueResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.random.QueryRandomRequestQueueResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.random.QueryRandomRequestQueueResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.irismod.random.QueryClient.prototype.randomRequestQueue =
 /**
  * @param {!proto.irismod.random.QueryRandomRequestQueueRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.random.QueryRandomRequestQueueResponse>}
  *     Promise that resolves to the response

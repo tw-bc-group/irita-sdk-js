@@ -24,7 +24,7 @@ proto.irismod.nft = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -32,7 +32,7 @@ proto.irismod.nft = require('./tx_pb.js');
 proto.irismod.nft.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -50,7 +50,7 @@ proto.irismod.nft.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -58,7 +58,7 @@ proto.irismod.nft.MsgClient =
 proto.irismod.nft.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -96,30 +96,11 @@ const methodDescriptor_Msg_IssueDenom = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.MsgIssueDenom,
- *   !proto.irismod.nft.MsgIssueDenomResponse>}
- */
-const methodInfo_Msg_IssueDenom = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.MsgIssueDenomResponse,
-  /**
-   * @param {!proto.irismod.nft.MsgIssueDenom} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.MsgIssueDenomResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.MsgIssueDenom} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.MsgIssueDenomResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgIssueDenomResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgIssueDenomResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -138,7 +119,7 @@ proto.irismod.nft.MsgClient.prototype.issueDenom =
 /**
  * @param {!proto.irismod.nft.MsgIssueDenom} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.MsgIssueDenomResponse>}
  *     Promise that resolves to the response
@@ -176,30 +157,11 @@ const methodDescriptor_Msg_MintNFT = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.MsgMintNFT,
- *   !proto.irismod.nft.MsgMintNFTResponse>}
- */
-const methodInfo_Msg_MintNFT = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.MsgMintNFTResponse,
-  /**
-   * @param {!proto.irismod.nft.MsgMintNFT} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.MsgMintNFTResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.MsgMintNFT} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.MsgMintNFTResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgMintNFTResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgMintNFTResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -218,7 +180,7 @@ proto.irismod.nft.MsgClient.prototype.mintNFT =
 /**
  * @param {!proto.irismod.nft.MsgMintNFT} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.MsgMintNFTResponse>}
  *     Promise that resolves to the response
@@ -256,30 +218,11 @@ const methodDescriptor_Msg_EditNFT = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.MsgEditNFT,
- *   !proto.irismod.nft.MsgEditNFTResponse>}
- */
-const methodInfo_Msg_EditNFT = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.MsgEditNFTResponse,
-  /**
-   * @param {!proto.irismod.nft.MsgEditNFT} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.MsgEditNFTResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.MsgEditNFT} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.MsgEditNFTResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgEditNFTResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgEditNFTResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -298,7 +241,7 @@ proto.irismod.nft.MsgClient.prototype.editNFT =
 /**
  * @param {!proto.irismod.nft.MsgEditNFT} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.MsgEditNFTResponse>}
  *     Promise that resolves to the response
@@ -336,30 +279,11 @@ const methodDescriptor_Msg_TransferNFT = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.MsgTransferNFT,
- *   !proto.irismod.nft.MsgTransferNFTResponse>}
- */
-const methodInfo_Msg_TransferNFT = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.MsgTransferNFTResponse,
-  /**
-   * @param {!proto.irismod.nft.MsgTransferNFT} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.MsgTransferNFTResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.MsgTransferNFT} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.MsgTransferNFTResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgTransferNFTResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgTransferNFTResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -378,7 +302,7 @@ proto.irismod.nft.MsgClient.prototype.transferNFT =
 /**
  * @param {!proto.irismod.nft.MsgTransferNFT} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.MsgTransferNFTResponse>}
  *     Promise that resolves to the response
@@ -416,30 +340,11 @@ const methodDescriptor_Msg_BurnNFT = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.MsgBurnNFT,
- *   !proto.irismod.nft.MsgBurnNFTResponse>}
- */
-const methodInfo_Msg_BurnNFT = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.MsgBurnNFTResponse,
-  /**
-   * @param {!proto.irismod.nft.MsgBurnNFT} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.MsgBurnNFTResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.MsgBurnNFT} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.MsgBurnNFTResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgBurnNFTResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgBurnNFTResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -458,7 +363,7 @@ proto.irismod.nft.MsgClient.prototype.burnNFT =
 /**
  * @param {!proto.irismod.nft.MsgBurnNFT} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.MsgBurnNFTResponse>}
  *     Promise that resolves to the response
@@ -470,6 +375,67 @@ proto.irismod.nft.MsgPromiseClient.prototype.burnNFT =
       request,
       metadata || {},
       methodDescriptor_Msg_BurnNFT);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.irismod.nft.MsgTransferDenom,
+ *   !proto.irismod.nft.MsgTransferDenomResponse>}
+ */
+const methodDescriptor_Msg_TransferDenom = new grpc.web.MethodDescriptor(
+  '/irismod.nft.Msg/TransferDenom',
+  grpc.web.MethodType.UNARY,
+  proto.irismod.nft.MsgTransferDenom,
+  proto.irismod.nft.MsgTransferDenomResponse,
+  /**
+   * @param {!proto.irismod.nft.MsgTransferDenom} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.irismod.nft.MsgTransferDenomResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.irismod.nft.MsgTransferDenom} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.MsgTransferDenomResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.MsgTransferDenomResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.irismod.nft.MsgClient.prototype.transferDenom =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/irismod.nft.Msg/TransferDenom',
+      request,
+      metadata || {},
+      methodDescriptor_Msg_TransferDenom,
+      callback);
+};
+
+
+/**
+ * @param {!proto.irismod.nft.MsgTransferDenom} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.irismod.nft.MsgTransferDenomResponse>}
+ *     Promise that resolves to the response
+ */
+proto.irismod.nft.MsgPromiseClient.prototype.transferDenom =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/irismod.nft.Msg/TransferDenom',
+      request,
+      metadata || {},
+      methodDescriptor_Msg_TransferDenom);
 };
 
 

@@ -30,7 +30,7 @@ proto.ibc.core.client.v1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -38,7 +38,7 @@ proto.ibc.core.client.v1 = require('./tx_pb.js');
 proto.ibc.core.client.v1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -56,7 +56,7 @@ proto.ibc.core.client.v1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -64,7 +64,7 @@ proto.ibc.core.client.v1.MsgClient =
 proto.ibc.core.client.v1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -102,30 +102,11 @@ const methodDescriptor_Msg_CreateClient = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.MsgCreateClient,
- *   !proto.ibc.core.client.v1.MsgCreateClientResponse>}
- */
-const methodInfo_Msg_CreateClient = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.MsgCreateClientResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.MsgCreateClient} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.MsgCreateClientResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.MsgCreateClient} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.MsgCreateClientResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.MsgCreateClientResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.MsgCreateClientResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -144,7 +125,7 @@ proto.ibc.core.client.v1.MsgClient.prototype.createClient =
 /**
  * @param {!proto.ibc.core.client.v1.MsgCreateClient} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.MsgCreateClientResponse>}
  *     Promise that resolves to the response
@@ -182,30 +163,11 @@ const methodDescriptor_Msg_UpdateClient = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.MsgUpdateClient,
- *   !proto.ibc.core.client.v1.MsgUpdateClientResponse>}
- */
-const methodInfo_Msg_UpdateClient = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.MsgUpdateClientResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.MsgUpdateClient} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.MsgUpdateClientResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.MsgUpdateClient} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.MsgUpdateClientResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.MsgUpdateClientResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.MsgUpdateClientResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -224,7 +186,7 @@ proto.ibc.core.client.v1.MsgClient.prototype.updateClient =
 /**
  * @param {!proto.ibc.core.client.v1.MsgUpdateClient} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.MsgUpdateClientResponse>}
  *     Promise that resolves to the response
@@ -262,30 +224,11 @@ const methodDescriptor_Msg_UpgradeClient = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.MsgUpgradeClient,
- *   !proto.ibc.core.client.v1.MsgUpgradeClientResponse>}
- */
-const methodInfo_Msg_UpgradeClient = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.MsgUpgradeClientResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.MsgUpgradeClient} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.MsgUpgradeClientResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.MsgUpgradeClient} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.MsgUpgradeClientResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.MsgUpgradeClientResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.MsgUpgradeClientResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -304,7 +247,7 @@ proto.ibc.core.client.v1.MsgClient.prototype.upgradeClient =
 /**
  * @param {!proto.ibc.core.client.v1.MsgUpgradeClient} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.MsgUpgradeClientResponse>}
  *     Promise that resolves to the response
@@ -342,30 +285,11 @@ const methodDescriptor_Msg_SubmitMisbehaviour = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.MsgSubmitMisbehaviour,
- *   !proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse>}
- */
-const methodInfo_Msg_SubmitMisbehaviour = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.MsgSubmitMisbehaviour} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.MsgSubmitMisbehaviour} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -384,7 +308,7 @@ proto.ibc.core.client.v1.MsgClient.prototype.submitMisbehaviour =
 /**
  * @param {!proto.ibc.core.client.v1.MsgSubmitMisbehaviour} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.MsgSubmitMisbehaviourResponse>}
  *     Promise that resolves to the response

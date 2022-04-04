@@ -36,7 +36,7 @@ proto.ibc.core.connection.v1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -44,7 +44,7 @@ proto.ibc.core.connection.v1 = require('./query_pb.js');
 proto.ibc.core.connection.v1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -62,7 +62,7 @@ proto.ibc.core.connection.v1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -70,7 +70,7 @@ proto.ibc.core.connection.v1.QueryClient =
 proto.ibc.core.connection.v1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -108,30 +108,11 @@ const methodDescriptor_Query_Connection = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.QueryConnectionRequest,
- *   !proto.ibc.core.connection.v1.QueryConnectionResponse>}
- */
-const methodInfo_Query_Connection = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.QueryConnectionResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.QueryConnectionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.QueryConnectionResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.QueryConnectionResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.QueryConnectionResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.QueryConnectionResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -150,7 +131,7 @@ proto.ibc.core.connection.v1.QueryClient.prototype.connection =
 /**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.QueryConnectionResponse>}
  *     Promise that resolves to the response
@@ -188,30 +169,11 @@ const methodDescriptor_Query_Connections = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.QueryConnectionsRequest,
- *   !proto.ibc.core.connection.v1.QueryConnectionsResponse>}
- */
-const methodInfo_Query_Connections = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.QueryConnectionsResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.QueryConnectionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.QueryConnectionsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.QueryConnectionsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.QueryConnectionsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.QueryConnectionsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -230,7 +192,7 @@ proto.ibc.core.connection.v1.QueryClient.prototype.connections =
 /**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.QueryConnectionsResponse>}
  *     Promise that resolves to the response
@@ -268,30 +230,11 @@ const methodDescriptor_Query_ClientConnections = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.QueryClientConnectionsRequest,
- *   !proto.ibc.core.connection.v1.QueryClientConnectionsResponse>}
- */
-const methodInfo_Query_ClientConnections = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.QueryClientConnectionsResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.QueryClientConnectionsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.QueryClientConnectionsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.QueryClientConnectionsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.QueryClientConnectionsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.QueryClientConnectionsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.QueryClientConnectionsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -310,7 +253,7 @@ proto.ibc.core.connection.v1.QueryClient.prototype.clientConnections =
 /**
  * @param {!proto.ibc.core.connection.v1.QueryClientConnectionsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.QueryClientConnectionsResponse>}
  *     Promise that resolves to the response
@@ -348,30 +291,11 @@ const methodDescriptor_Query_ConnectionClientState = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.QueryConnectionClientStateRequest,
- *   !proto.ibc.core.connection.v1.QueryConnectionClientStateResponse>}
- */
-const methodInfo_Query_ConnectionClientState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.QueryConnectionClientStateResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.QueryConnectionClientStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.QueryConnectionClientStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionClientStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.QueryConnectionClientStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.QueryConnectionClientStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.QueryConnectionClientStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -390,7 +314,7 @@ proto.ibc.core.connection.v1.QueryClient.prototype.connectionClientState =
 /**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionClientStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.QueryConnectionClientStateResponse>}
  *     Promise that resolves to the response
@@ -428,30 +352,11 @@ const methodDescriptor_Query_ConnectionConsensusState = new grpc.web.MethodDescr
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.QueryConnectionConsensusStateRequest,
- *   !proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse>}
- */
-const methodInfo_Query_ConnectionConsensusState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.QueryConnectionConsensusStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionConsensusStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -470,7 +375,7 @@ proto.ibc.core.connection.v1.QueryClient.prototype.connectionConsensusState =
 /**
  * @param {!proto.ibc.core.connection.v1.QueryConnectionConsensusStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.QueryConnectionConsensusStateResponse>}
  *     Promise that resolves to the response

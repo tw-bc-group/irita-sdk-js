@@ -32,7 +32,7 @@ proto.wasmd.x.wasmd.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.wasmd.x.wasmd.v1beta1 = require('./query_pb.js');
 proto.wasmd.x.wasmd.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient =
 proto.wasmd.x.wasmd.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_Query_ContractInfo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractInfoRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse>}
- */
-const methodInfo_Query_ContractInfo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractInfoRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractInfoRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.contractInfo =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractInfoRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryContractInfoResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_Query_ContractHistory = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse>}
- */
-const methodInfo_Query_ContractHistory = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.contractHistory =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryContractHistoryResponse>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_Query_ContractsByCode = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse>}
- */
-const methodInfo_Query_ContractsByCode = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.contractsByCode =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryContractsByCodeResponse>}
  *     Promise that resolves to the response
@@ -344,30 +287,11 @@ const methodDescriptor_Query_AllContractState = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse>}
- */
-const methodInfo_Query_AllContractState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -386,7 +310,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.allContractState =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryAllContractStateResponse>}
  *     Promise that resolves to the response
@@ -424,30 +348,11 @@ const methodDescriptor_Query_RawContractState = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse>}
- */
-const methodInfo_Query_RawContractState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -466,7 +371,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.rawContractState =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryRawContractStateResponse>}
  *     Promise that resolves to the response
@@ -504,30 +409,11 @@ const methodDescriptor_Query_SmartContractState = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse>}
- */
-const methodInfo_Query_SmartContractState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -546,7 +432,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.smartContractState =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QuerySmartContractStateResponse>}
  *     Promise that resolves to the response
@@ -584,30 +470,11 @@ const methodDescriptor_Query_Code = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryCodeRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse>}
- */
-const methodInfo_Query_Code = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodeRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -626,7 +493,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.code =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodeRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryCodeResponse>}
  *     Promise that resolves to the response
@@ -664,30 +531,11 @@ const methodDescriptor_Query_Codes = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.wasmd.x.wasmd.v1beta1.QueryCodesRequest,
- *   !proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse>}
- */
-const methodInfo_Query_Codes = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse,
-  /**
-   * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -706,7 +554,7 @@ proto.wasmd.x.wasmd.v1beta1.QueryClient.prototype.codes =
 /**
  * @param {!proto.wasmd.x.wasmd.v1beta1.QueryCodesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.wasmd.x.wasmd.v1beta1.QueryCodesResponse>}
  *     Promise that resolves to the response

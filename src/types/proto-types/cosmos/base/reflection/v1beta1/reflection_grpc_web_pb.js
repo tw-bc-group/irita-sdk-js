@@ -26,7 +26,7 @@ proto.cosmos.base.reflection.v1beta1 = require('./reflection_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.cosmos.base.reflection.v1beta1 = require('./reflection_pb.js');
 proto.cosmos.base.reflection.v1beta1.ReflectionServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.cosmos.base.reflection.v1beta1.ReflectionServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.cosmos.base.reflection.v1beta1.ReflectionServiceClient =
 proto.cosmos.base.reflection.v1beta1.ReflectionServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_ReflectionService_ListAllInterfaces = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.reflection.v1beta1.ListAllInterfacesRequest,
- *   !proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse>}
- */
-const methodInfo_ReflectionService_ListAllInterfaces = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse,
-  /**
-   * @param {!proto.cosmos.base.reflection.v1beta1.ListAllInterfacesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.reflection.v1beta1.ListAllInterfacesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.cosmos.base.reflection.v1beta1.ReflectionServiceClient.prototype.listAllIn
 /**
  * @param {!proto.cosmos.base.reflection.v1beta1.ListAllInterfacesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.reflection.v1beta1.ListAllInterfacesResponse>}
  *     Promise that resolves to the response
@@ -178,30 +159,11 @@ const methodDescriptor_ReflectionService_ListImplementations = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.reflection.v1beta1.ListImplementationsRequest,
- *   !proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse>}
- */
-const methodInfo_ReflectionService_ListImplementations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse,
-  /**
-   * @param {!proto.cosmos.base.reflection.v1beta1.ListImplementationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.reflection.v1beta1.ListImplementationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -220,7 +182,7 @@ proto.cosmos.base.reflection.v1beta1.ReflectionServiceClient.prototype.listImple
 /**
  * @param {!proto.cosmos.base.reflection.v1beta1.ListImplementationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.reflection.v1beta1.ListImplementationsResponse>}
  *     Promise that resolves to the response

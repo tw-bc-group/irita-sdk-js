@@ -26,7 +26,7 @@ proto.irismod.htlc = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.htlc = require('./tx_pb.js');
 proto.irismod.htlc.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.htlc.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.htlc.MsgClient =
 proto.irismod.htlc.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Msg_CreateHTLC = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.htlc.MsgCreateHTLC,
- *   !proto.irismod.htlc.MsgCreateHTLCResponse>}
- */
-const methodInfo_Msg_CreateHTLC = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.htlc.MsgCreateHTLCResponse,
-  /**
-   * @param {!proto.irismod.htlc.MsgCreateHTLC} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.htlc.MsgCreateHTLCResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.htlc.MsgCreateHTLC} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.htlc.MsgCreateHTLCResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.htlc.MsgCreateHTLCResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.htlc.MsgCreateHTLCResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.htlc.MsgClient.prototype.createHTLC =
 /**
  * @param {!proto.irismod.htlc.MsgCreateHTLC} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.htlc.MsgCreateHTLCResponse>}
  *     Promise that resolves to the response
@@ -178,30 +159,11 @@ const methodDescriptor_Msg_ClaimHTLC = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.htlc.MsgClaimHTLC,
- *   !proto.irismod.htlc.MsgClaimHTLCResponse>}
- */
-const methodInfo_Msg_ClaimHTLC = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.htlc.MsgClaimHTLCResponse,
-  /**
-   * @param {!proto.irismod.htlc.MsgClaimHTLC} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.htlc.MsgClaimHTLCResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.htlc.MsgClaimHTLC} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.htlc.MsgClaimHTLCResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.htlc.MsgClaimHTLCResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.htlc.MsgClaimHTLCResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -220,7 +182,7 @@ proto.irismod.htlc.MsgClient.prototype.claimHTLC =
 /**
  * @param {!proto.irismod.htlc.MsgClaimHTLC} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.htlc.MsgClaimHTLCResponse>}
  *     Promise that resolves to the response
@@ -258,30 +220,11 @@ const methodDescriptor_Msg_RefundHTLC = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.htlc.MsgRefundHTLC,
- *   !proto.irismod.htlc.MsgRefundHTLCResponse>}
- */
-const methodInfo_Msg_RefundHTLC = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.htlc.MsgRefundHTLCResponse,
-  /**
-   * @param {!proto.irismod.htlc.MsgRefundHTLC} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.htlc.MsgRefundHTLCResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.htlc.MsgRefundHTLC} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.htlc.MsgRefundHTLCResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.htlc.MsgRefundHTLCResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.htlc.MsgRefundHTLCResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -300,7 +243,7 @@ proto.irismod.htlc.MsgClient.prototype.refundHTLC =
 /**
  * @param {!proto.irismod.htlc.MsgRefundHTLC} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.htlc.MsgRefundHTLCResponse>}
  *     Promise that resolves to the response

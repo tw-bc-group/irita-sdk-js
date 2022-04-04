@@ -26,7 +26,7 @@ proto.irismod.record = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.record = require('./tx_pb.js');
 proto.irismod.record.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.record.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.record.MsgClient =
 proto.irismod.record.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Msg_CreateRecord = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.record.MsgCreateRecord,
- *   !proto.irismod.record.MsgCreateRecordResponse>}
- */
-const methodInfo_Msg_CreateRecord = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.record.MsgCreateRecordResponse,
-  /**
-   * @param {!proto.irismod.record.MsgCreateRecord} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.record.MsgCreateRecordResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.record.MsgCreateRecord} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.record.MsgCreateRecordResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.record.MsgCreateRecordResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.record.MsgCreateRecordResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.record.MsgClient.prototype.createRecord =
 /**
  * @param {!proto.irismod.record.MsgCreateRecord} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.record.MsgCreateRecordResponse>}
  *     Promise that resolves to the response

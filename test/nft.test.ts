@@ -27,7 +27,9 @@ describe('Nft Tests', () => {
             denom_id,
             denom_name,
             denom_schema,
-            BaseTest.baseTx
+            true,
+            true,
+            BaseTest.baseTx,
           )
           .then(res => {
             console.log(JSON.stringify(res));

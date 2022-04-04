@@ -33,7 +33,7 @@ proto.cosmos.tx.v1beta1 = require('./service_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -41,7 +41,7 @@ proto.cosmos.tx.v1beta1 = require('./service_pb.js');
 proto.cosmos.tx.v1beta1.ServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -59,7 +59,7 @@ proto.cosmos.tx.v1beta1.ServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -67,7 +67,7 @@ proto.cosmos.tx.v1beta1.ServiceClient =
 proto.cosmos.tx.v1beta1.ServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -105,30 +105,11 @@ const methodDescriptor_Service_Simulate = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.tx.v1beta1.SimulateRequest,
- *   !proto.cosmos.tx.v1beta1.SimulateResponse>}
- */
-const methodInfo_Service_Simulate = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.tx.v1beta1.SimulateResponse,
-  /**
-   * @param {!proto.cosmos.tx.v1beta1.SimulateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.tx.v1beta1.SimulateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.tx.v1beta1.SimulateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.tx.v1beta1.SimulateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.tx.v1beta1.SimulateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.tx.v1beta1.SimulateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -147,7 +128,7 @@ proto.cosmos.tx.v1beta1.ServiceClient.prototype.simulate =
 /**
  * @param {!proto.cosmos.tx.v1beta1.SimulateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.tx.v1beta1.SimulateResponse>}
  *     Promise that resolves to the response
@@ -185,30 +166,11 @@ const methodDescriptor_Service_GetTx = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.tx.v1beta1.GetTxRequest,
- *   !proto.cosmos.tx.v1beta1.GetTxResponse>}
- */
-const methodInfo_Service_GetTx = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.tx.v1beta1.GetTxResponse,
-  /**
-   * @param {!proto.cosmos.tx.v1beta1.GetTxRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.tx.v1beta1.GetTxResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.tx.v1beta1.GetTxRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.tx.v1beta1.GetTxResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.tx.v1beta1.GetTxResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.tx.v1beta1.GetTxResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -227,7 +189,7 @@ proto.cosmos.tx.v1beta1.ServiceClient.prototype.getTx =
 /**
  * @param {!proto.cosmos.tx.v1beta1.GetTxRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.tx.v1beta1.GetTxResponse>}
  *     Promise that resolves to the response
@@ -265,30 +227,11 @@ const methodDescriptor_Service_BroadcastTx = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.tx.v1beta1.BroadcastTxRequest,
- *   !proto.cosmos.tx.v1beta1.BroadcastTxResponse>}
- */
-const methodInfo_Service_BroadcastTx = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.tx.v1beta1.BroadcastTxResponse,
-  /**
-   * @param {!proto.cosmos.tx.v1beta1.BroadcastTxRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.tx.v1beta1.BroadcastTxResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.tx.v1beta1.BroadcastTxRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.tx.v1beta1.BroadcastTxResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.tx.v1beta1.BroadcastTxResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.tx.v1beta1.BroadcastTxResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -307,7 +250,7 @@ proto.cosmos.tx.v1beta1.ServiceClient.prototype.broadcastTx =
 /**
  * @param {!proto.cosmos.tx.v1beta1.BroadcastTxRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.tx.v1beta1.BroadcastTxResponse>}
  *     Promise that resolves to the response
@@ -345,30 +288,11 @@ const methodDescriptor_Service_GetTxsEvent = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.tx.v1beta1.GetTxsEventRequest,
- *   !proto.cosmos.tx.v1beta1.GetTxsEventResponse>}
- */
-const methodInfo_Service_GetTxsEvent = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.tx.v1beta1.GetTxsEventResponse,
-  /**
-   * @param {!proto.cosmos.tx.v1beta1.GetTxsEventRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.tx.v1beta1.GetTxsEventResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.tx.v1beta1.GetTxsEventRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.tx.v1beta1.GetTxsEventResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.tx.v1beta1.GetTxsEventResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.tx.v1beta1.GetTxsEventResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -387,7 +311,7 @@ proto.cosmos.tx.v1beta1.ServiceClient.prototype.getTxsEvent =
 /**
  * @param {!proto.cosmos.tx.v1beta1.GetTxsEventRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.tx.v1beta1.GetTxsEventResponse>}
  *     Promise that resolves to the response

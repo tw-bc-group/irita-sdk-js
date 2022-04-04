@@ -26,7 +26,7 @@ proto.irismod.oracle = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.oracle = require('./tx_pb.js');
 proto.irismod.oracle.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.oracle.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.oracle.MsgClient =
 proto.irismod.oracle.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Msg_CreateFeed = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.MsgCreateFeed,
- *   !proto.irismod.oracle.MsgCreateFeedResponse>}
- */
-const methodInfo_Msg_CreateFeed = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.MsgCreateFeedResponse,
-  /**
-   * @param {!proto.irismod.oracle.MsgCreateFeed} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.MsgCreateFeedResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.MsgCreateFeed} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.MsgCreateFeedResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.MsgCreateFeedResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.MsgCreateFeedResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.oracle.MsgClient.prototype.createFeed =
 /**
  * @param {!proto.irismod.oracle.MsgCreateFeed} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.MsgCreateFeedResponse>}
  *     Promise that resolves to the response
@@ -178,30 +159,11 @@ const methodDescriptor_Msg_EditFeed = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.MsgEditFeed,
- *   !proto.irismod.oracle.MsgEditFeedResponse>}
- */
-const methodInfo_Msg_EditFeed = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.MsgEditFeedResponse,
-  /**
-   * @param {!proto.irismod.oracle.MsgEditFeed} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.MsgEditFeedResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.MsgEditFeed} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.MsgEditFeedResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.MsgEditFeedResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.MsgEditFeedResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -220,7 +182,7 @@ proto.irismod.oracle.MsgClient.prototype.editFeed =
 /**
  * @param {!proto.irismod.oracle.MsgEditFeed} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.MsgEditFeedResponse>}
  *     Promise that resolves to the response
@@ -258,30 +220,11 @@ const methodDescriptor_Msg_StartFeed = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.MsgStartFeed,
- *   !proto.irismod.oracle.MsgStartFeedResponse>}
- */
-const methodInfo_Msg_StartFeed = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.MsgStartFeedResponse,
-  /**
-   * @param {!proto.irismod.oracle.MsgStartFeed} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.MsgStartFeedResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.MsgStartFeed} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.MsgStartFeedResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.MsgStartFeedResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.MsgStartFeedResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -300,7 +243,7 @@ proto.irismod.oracle.MsgClient.prototype.startFeed =
 /**
  * @param {!proto.irismod.oracle.MsgStartFeed} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.MsgStartFeedResponse>}
  *     Promise that resolves to the response
@@ -338,30 +281,11 @@ const methodDescriptor_Msg_PauseFeed = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.MsgPauseFeed,
- *   !proto.irismod.oracle.MsgPauseFeedResponse>}
- */
-const methodInfo_Msg_PauseFeed = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.MsgPauseFeedResponse,
-  /**
-   * @param {!proto.irismod.oracle.MsgPauseFeed} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.MsgPauseFeedResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.MsgPauseFeed} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.MsgPauseFeedResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.MsgPauseFeedResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.MsgPauseFeedResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -380,7 +304,7 @@ proto.irismod.oracle.MsgClient.prototype.pauseFeed =
 /**
  * @param {!proto.irismod.oracle.MsgPauseFeed} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.MsgPauseFeedResponse>}
  *     Promise that resolves to the response

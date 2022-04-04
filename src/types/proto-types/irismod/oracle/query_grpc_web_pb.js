@@ -32,7 +32,7 @@ proto.irismod.oracle = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.irismod.oracle = require('./query_pb.js');
 proto.irismod.oracle.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.irismod.oracle.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.irismod.oracle.QueryClient =
 proto.irismod.oracle.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_Query_Feed = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.QueryFeedRequest,
- *   !proto.irismod.oracle.QueryFeedResponse>}
- */
-const methodInfo_Query_Feed = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.QueryFeedResponse,
-  /**
-   * @param {!proto.irismod.oracle.QueryFeedRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.QueryFeedResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.QueryFeedRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.QueryFeedResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.QueryFeedResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.QueryFeedResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.irismod.oracle.QueryClient.prototype.feed =
 /**
  * @param {!proto.irismod.oracle.QueryFeedRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.QueryFeedResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_Query_Feeds = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.QueryFeedsRequest,
- *   !proto.irismod.oracle.QueryFeedsResponse>}
- */
-const methodInfo_Query_Feeds = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.QueryFeedsResponse,
-  /**
-   * @param {!proto.irismod.oracle.QueryFeedsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.QueryFeedsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.QueryFeedsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.QueryFeedsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.QueryFeedsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.QueryFeedsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.irismod.oracle.QueryClient.prototype.feeds =
 /**
  * @param {!proto.irismod.oracle.QueryFeedsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.QueryFeedsResponse>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_Query_FeedValue = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.oracle.QueryFeedValueRequest,
- *   !proto.irismod.oracle.QueryFeedValueResponse>}
- */
-const methodInfo_Query_FeedValue = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.oracle.QueryFeedValueResponse,
-  /**
-   * @param {!proto.irismod.oracle.QueryFeedValueRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.oracle.QueryFeedValueResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.oracle.QueryFeedValueRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.oracle.QueryFeedValueResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.oracle.QueryFeedValueResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.oracle.QueryFeedValueResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.irismod.oracle.QueryClient.prototype.feedValue =
 /**
  * @param {!proto.irismod.oracle.QueryFeedValueRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.oracle.QueryFeedValueResponse>}
  *     Promise that resolves to the response

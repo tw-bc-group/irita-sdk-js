@@ -2,15 +2,24 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.tendermint.libs.bits.BitArray', null, global);
 /**
@@ -116,8 +125,10 @@ proto.tendermint.libs.bits.BitArray.deserializeBinaryFromReader = function(msg, 
       msg.setBits(value);
       break;
     case 2:
-      var value = /** @type {!Array<number>} */ (reader.readPackedUint64());
-      msg.setElemsList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addElems(values[i]);
+      }
       break;
     default:
       reader.skipField();

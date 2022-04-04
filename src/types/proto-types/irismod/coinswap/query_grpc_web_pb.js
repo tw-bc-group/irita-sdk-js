@@ -28,7 +28,7 @@ proto.irismod.coinswap = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.irismod.coinswap = require('./query_pb.js');
 proto.irismod.coinswap.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.irismod.coinswap.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.irismod.coinswap.QueryClient =
 proto.irismod.coinswap.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_Query_Liquidity = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.coinswap.QueryLiquidityRequest,
- *   !proto.irismod.coinswap.QueryLiquidityResponse>}
- */
-const methodInfo_Query_Liquidity = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.coinswap.QueryLiquidityResponse,
-  /**
-   * @param {!proto.irismod.coinswap.QueryLiquidityRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.coinswap.QueryLiquidityResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.coinswap.QueryLiquidityRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.coinswap.QueryLiquidityResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.coinswap.QueryLiquidityResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.coinswap.QueryLiquidityResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.irismod.coinswap.QueryClient.prototype.liquidity =
 /**
  * @param {!proto.irismod.coinswap.QueryLiquidityRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.coinswap.QueryLiquidityResponse>}
  *     Promise that resolves to the response

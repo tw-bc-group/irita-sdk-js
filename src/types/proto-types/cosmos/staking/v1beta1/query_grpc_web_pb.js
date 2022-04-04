@@ -31,7 +31,7 @@ proto.cosmos.staking.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -39,7 +39,7 @@ proto.cosmos.staking.v1beta1 = require('./query_pb.js');
 proto.cosmos.staking.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -57,7 +57,7 @@ proto.cosmos.staking.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -65,7 +65,7 @@ proto.cosmos.staking.v1beta1.QueryClient =
 proto.cosmos.staking.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -103,30 +103,11 @@ const methodDescriptor_Query_Validators = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryValidatorsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryValidatorsResponse>}
- */
-const methodInfo_Query_Validators = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryValidatorsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryValidatorsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryValidatorsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryValidatorsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryValidatorsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryValidatorsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -145,7 +126,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.validators =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryValidatorsResponse>}
  *     Promise that resolves to the response
@@ -183,30 +164,11 @@ const methodDescriptor_Query_Validator = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryValidatorRequest,
- *   !proto.cosmos.staking.v1beta1.QueryValidatorResponse>}
- */
-const methodInfo_Query_Validator = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryValidatorResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryValidatorRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryValidatorResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryValidatorResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryValidatorResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryValidatorResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -225,7 +187,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.validator =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryValidatorResponse>}
  *     Promise that resolves to the response
@@ -263,30 +225,11 @@ const methodDescriptor_Query_ValidatorDelegations = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryValidatorDelegationsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse>}
- */
-const methodInfo_Query_ValidatorDelegations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryValidatorDelegationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorDelegationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -305,7 +248,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.validatorDelegations =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorDelegationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryValidatorDelegationsResponse>}
  *     Promise that resolves to the response
@@ -343,30 +286,11 @@ const methodDescriptor_Query_ValidatorUnbondingDelegations = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse>}
- */
-const methodInfo_Query_ValidatorUnbondingDelegations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -385,7 +309,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.validatorUnbondingDelegations
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryValidatorUnbondingDelegationsResponse>}
  *     Promise that resolves to the response
@@ -423,30 +347,11 @@ const methodDescriptor_Query_Delegation = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryDelegationRequest,
- *   !proto.cosmos.staking.v1beta1.QueryDelegationResponse>}
- */
-const methodInfo_Query_Delegation = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryDelegationResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryDelegationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryDelegationResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryDelegationResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryDelegationResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryDelegationResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -465,7 +370,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.delegation =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryDelegationResponse>}
  *     Promise that resolves to the response
@@ -503,30 +408,11 @@ const methodDescriptor_Query_UnbondingDelegation = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryUnbondingDelegationRequest,
- *   !proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse>}
- */
-const methodInfo_Query_UnbondingDelegation = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryUnbondingDelegationRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryUnbondingDelegationRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -545,7 +431,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.unbondingDelegation =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryUnbondingDelegationRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryUnbondingDelegationResponse>}
  *     Promise that resolves to the response
@@ -583,30 +469,11 @@ const methodDescriptor_Query_DelegatorDelegations = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse>}
- */
-const methodInfo_Query_DelegatorDelegations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -625,7 +492,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.delegatorDelegations =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryDelegatorDelegationsResponse>}
  *     Promise that resolves to the response
@@ -663,30 +530,11 @@ const methodDescriptor_Query_DelegatorUnbondingDelegations = new grpc.web.Method
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse>}
- */
-const methodInfo_Query_DelegatorUnbondingDelegations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -705,7 +553,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.delegatorUnbondingDelegations
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsResponse>}
  *     Promise that resolves to the response
@@ -743,30 +591,11 @@ const methodDescriptor_Query_Redelegations = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryRedelegationsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryRedelegationsResponse>}
- */
-const methodInfo_Query_Redelegations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryRedelegationsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryRedelegationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryRedelegationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryRedelegationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryRedelegationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryRedelegationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryRedelegationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -785,7 +614,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.redelegations =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryRedelegationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryRedelegationsResponse>}
  *     Promise that resolves to the response
@@ -823,30 +652,11 @@ const methodDescriptor_Query_DelegatorValidators = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse>}
- */
-const methodInfo_Query_DelegatorValidators = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -865,7 +675,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.delegatorValidators =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorsResponse>}
  *     Promise that resolves to the response
@@ -903,30 +713,11 @@ const methodDescriptor_Query_DelegatorValidator = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorValidatorRequest,
- *   !proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse>}
- */
-const methodInfo_Query_DelegatorValidator = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -945,7 +736,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.delegatorValidator =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryDelegatorValidatorResponse>}
  *     Promise that resolves to the response
@@ -983,30 +774,11 @@ const methodDescriptor_Query_HistoricalInfo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryHistoricalInfoRequest,
- *   !proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse>}
- */
-const methodInfo_Query_HistoricalInfo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryHistoricalInfoRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryHistoricalInfoRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1025,7 +797,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.historicalInfo =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryHistoricalInfoRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryHistoricalInfoResponse>}
  *     Promise that resolves to the response
@@ -1063,30 +835,11 @@ const methodDescriptor_Query_Pool = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryPoolRequest,
- *   !proto.cosmos.staking.v1beta1.QueryPoolResponse>}
- */
-const methodInfo_Query_Pool = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryPoolResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryPoolRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryPoolResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryPoolRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryPoolResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryPoolResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryPoolResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1105,7 +858,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.pool =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryPoolRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryPoolResponse>}
  *     Promise that resolves to the response
@@ -1143,30 +896,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.staking.v1beta1.QueryParamsRequest,
- *   !proto.cosmos.staking.v1beta1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.staking.v1beta1.QueryParamsResponse,
-  /**
-   * @param {!proto.cosmos.staking.v1beta1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.staking.v1beta1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.staking.v1beta1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.staking.v1beta1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.staking.v1beta1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.staking.v1beta1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -1185,7 +919,7 @@ proto.cosmos.staking.v1beta1.QueryClient.prototype.params =
 /**
  * @param {!proto.cosmos.staking.v1beta1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.staking.v1beta1.QueryParamsResponse>}
  *     Promise that resolves to the response

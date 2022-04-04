@@ -27,7 +27,7 @@ proto.cosmos.vesting.v1beta1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -35,7 +35,7 @@ proto.cosmos.vesting.v1beta1 = require('./tx_pb.js');
 proto.cosmos.vesting.v1beta1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -53,7 +53,7 @@ proto.cosmos.vesting.v1beta1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -61,7 +61,7 @@ proto.cosmos.vesting.v1beta1.MsgClient =
 proto.cosmos.vesting.v1beta1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -99,30 +99,11 @@ const methodDescriptor_Msg_CreateVestingAccount = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.vesting.v1beta1.MsgCreateVestingAccount,
- *   !proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse>}
- */
-const methodInfo_Msg_CreateVestingAccount = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse,
-  /**
-   * @param {!proto.cosmos.vesting.v1beta1.MsgCreateVestingAccount} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.vesting.v1beta1.MsgCreateVestingAccount} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -141,7 +122,7 @@ proto.cosmos.vesting.v1beta1.MsgClient.prototype.createVestingAccount =
 /**
  * @param {!proto.cosmos.vesting.v1beta1.MsgCreateVestingAccount} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.vesting.v1beta1.MsgCreateVestingAccountResponse>}
  *     Promise that resolves to the response

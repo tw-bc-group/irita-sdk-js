@@ -29,7 +29,7 @@ proto.cosmos.upgrade.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -37,7 +37,7 @@ proto.cosmos.upgrade.v1beta1 = require('./query_pb.js');
 proto.cosmos.upgrade.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -55,7 +55,7 @@ proto.cosmos.upgrade.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -63,7 +63,7 @@ proto.cosmos.upgrade.v1beta1.QueryClient =
 proto.cosmos.upgrade.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -101,30 +101,11 @@ const methodDescriptor_Query_CurrentPlan = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.upgrade.v1beta1.QueryCurrentPlanRequest,
- *   !proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse>}
- */
-const methodInfo_Query_CurrentPlan = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse,
-  /**
-   * @param {!proto.cosmos.upgrade.v1beta1.QueryCurrentPlanRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryCurrentPlanRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -143,7 +124,7 @@ proto.cosmos.upgrade.v1beta1.QueryClient.prototype.currentPlan =
 /**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryCurrentPlanRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.upgrade.v1beta1.QueryCurrentPlanResponse>}
  *     Promise that resolves to the response
@@ -181,30 +162,11 @@ const methodDescriptor_Query_AppliedPlan = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.upgrade.v1beta1.QueryAppliedPlanRequest,
- *   !proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse>}
- */
-const methodInfo_Query_AppliedPlan = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse,
-  /**
-   * @param {!proto.cosmos.upgrade.v1beta1.QueryAppliedPlanRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryAppliedPlanRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -223,7 +185,7 @@ proto.cosmos.upgrade.v1beta1.QueryClient.prototype.appliedPlan =
 /**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryAppliedPlanRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.upgrade.v1beta1.QueryAppliedPlanResponse>}
  *     Promise that resolves to the response
@@ -261,30 +223,11 @@ const methodDescriptor_Query_UpgradedConsensusState = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest,
- *   !proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse>}
- */
-const methodInfo_Query_UpgradedConsensusState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse,
-  /**
-   * @param {!proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -303,7 +246,7 @@ proto.cosmos.upgrade.v1beta1.QueryClient.prototype.upgradedConsensusState =
 /**
  * @param {!proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.upgrade.v1beta1.QueryUpgradedConsensusStateResponse>}
  *     Promise that resolves to the response

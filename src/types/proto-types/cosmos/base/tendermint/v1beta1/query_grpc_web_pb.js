@@ -38,7 +38,7 @@ proto.cosmos.base.tendermint_1.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -46,7 +46,7 @@ proto.cosmos.base.tendermint_1.v1beta1 = require('./query_pb.js');
 proto.cosmos.base.tendermint_1.v1beta1.ServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -64,7 +64,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -72,7 +72,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient =
 proto.cosmos.base.tendermint_1.v1beta1.ServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -110,30 +110,11 @@ const methodDescriptor_Service_GetNodeInfo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse>}
- */
-const methodInfo_Service_GetNodeInfo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -152,7 +133,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getNodeInfo =
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetNodeInfoResponse>}
  *     Promise that resolves to the response
@@ -190,30 +171,11 @@ const methodDescriptor_Service_GetSyncing = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetSyncingRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse>}
- */
-const methodInfo_Service_GetSyncing = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetSyncingRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetSyncingRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -232,7 +194,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getSyncing =
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetSyncingRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetSyncingResponse>}
  *     Promise that resolves to the response
@@ -270,30 +232,11 @@ const methodDescriptor_Service_GetLatestBlock = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse>}
- */
-const methodInfo_Service_GetLatestBlock = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -312,7 +255,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getLatestBlock =
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetLatestBlockResponse>}
  *     Promise that resolves to the response
@@ -350,30 +293,11 @@ const methodDescriptor_Service_GetBlockByHeight = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse>}
- */
-const methodInfo_Service_GetBlockByHeight = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -392,7 +316,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getBlockByHeight 
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetBlockByHeightResponse>}
  *     Promise that resolves to the response
@@ -430,30 +354,11 @@ const methodDescriptor_Service_GetLatestValidatorSet = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse>}
- */
-const methodInfo_Service_GetLatestValidatorSet = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -472,7 +377,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getLatestValidato
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetLatestValidatorSetResponse>}
  *     Promise that resolves to the response
@@ -510,30 +415,11 @@ const methodDescriptor_Service_GetValidatorSetByHeight = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightRequest,
- *   !proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse>}
- */
-const methodInfo_Service_GetValidatorSetByHeight = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse,
-  /**
-   * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -552,7 +438,7 @@ proto.cosmos.base.tendermint_1.v1beta1.ServiceClient.prototype.getValidatorSetBy
 /**
  * @param {!proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.base.tendermint_1.v1beta1.GetValidatorSetByHeightResponse>}
  *     Promise that resolves to the response

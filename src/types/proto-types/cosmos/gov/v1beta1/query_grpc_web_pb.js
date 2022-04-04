@@ -31,7 +31,7 @@ proto.cosmos.gov.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -39,7 +39,7 @@ proto.cosmos.gov.v1beta1 = require('./query_pb.js');
 proto.cosmos.gov.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -57,7 +57,7 @@ proto.cosmos.gov.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -65,7 +65,7 @@ proto.cosmos.gov.v1beta1.QueryClient =
 proto.cosmos.gov.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -103,30 +103,11 @@ const methodDescriptor_Query_Proposal = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryProposalRequest,
- *   !proto.cosmos.gov.v1beta1.QueryProposalResponse>}
- */
-const methodInfo_Query_Proposal = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryProposalResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryProposalRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryProposalResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryProposalRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryProposalResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryProposalResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryProposalResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -145,7 +126,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.proposal =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryProposalRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryProposalResponse>}
  *     Promise that resolves to the response
@@ -183,30 +164,11 @@ const methodDescriptor_Query_Proposals = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryProposalsRequest,
- *   !proto.cosmos.gov.v1beta1.QueryProposalsResponse>}
- */
-const methodInfo_Query_Proposals = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryProposalsResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryProposalsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryProposalsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryProposalsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryProposalsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryProposalsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryProposalsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -225,7 +187,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.proposals =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryProposalsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryProposalsResponse>}
  *     Promise that resolves to the response
@@ -263,30 +225,11 @@ const methodDescriptor_Query_Vote = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryVoteRequest,
- *   !proto.cosmos.gov.v1beta1.QueryVoteResponse>}
- */
-const methodInfo_Query_Vote = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryVoteResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryVoteRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryVoteResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryVoteRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryVoteResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryVoteResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryVoteResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -305,7 +248,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.vote =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryVoteRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryVoteResponse>}
  *     Promise that resolves to the response
@@ -343,30 +286,11 @@ const methodDescriptor_Query_Votes = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryVotesRequest,
- *   !proto.cosmos.gov.v1beta1.QueryVotesResponse>}
- */
-const methodInfo_Query_Votes = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryVotesResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryVotesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryVotesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryVotesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryVotesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryVotesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryVotesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -385,7 +309,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.votes =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryVotesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryVotesResponse>}
  *     Promise that resolves to the response
@@ -423,30 +347,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryParamsRequest,
- *   !proto.cosmos.gov.v1beta1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryParamsResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -465,7 +370,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.params =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryParamsResponse>}
  *     Promise that resolves to the response
@@ -503,30 +408,11 @@ const methodDescriptor_Query_Deposit = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryDepositRequest,
- *   !proto.cosmos.gov.v1beta1.QueryDepositResponse>}
- */
-const methodInfo_Query_Deposit = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryDepositResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryDepositRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryDepositResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryDepositRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryDepositResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryDepositResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryDepositResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -545,7 +431,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.deposit =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryDepositRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryDepositResponse>}
  *     Promise that resolves to the response
@@ -583,30 +469,11 @@ const methodDescriptor_Query_Deposits = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryDepositsRequest,
- *   !proto.cosmos.gov.v1beta1.QueryDepositsResponse>}
- */
-const methodInfo_Query_Deposits = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryDepositsResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryDepositsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryDepositsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryDepositsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryDepositsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryDepositsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryDepositsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -625,7 +492,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.deposits =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryDepositsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryDepositsResponse>}
  *     Promise that resolves to the response
@@ -663,30 +530,11 @@ const methodDescriptor_Query_TallyResult = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.gov.v1beta1.QueryTallyResultRequest,
- *   !proto.cosmos.gov.v1beta1.QueryTallyResultResponse>}
- */
-const methodInfo_Query_TallyResult = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.gov.v1beta1.QueryTallyResultResponse,
-  /**
-   * @param {!proto.cosmos.gov.v1beta1.QueryTallyResultRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.gov.v1beta1.QueryTallyResultResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.gov.v1beta1.QueryTallyResultRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.gov.v1beta1.QueryTallyResultResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.gov.v1beta1.QueryTallyResultResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.gov.v1beta1.QueryTallyResultResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -705,7 +553,7 @@ proto.cosmos.gov.v1beta1.QueryClient.prototype.tallyResult =
 /**
  * @param {!proto.cosmos.gov.v1beta1.QueryTallyResultRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.gov.v1beta1.QueryTallyResultResponse>}
  *     Promise that resolves to the response

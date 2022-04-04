@@ -26,7 +26,7 @@ proto.irismod.htlc = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.htlc = require('./query_pb.js');
 proto.irismod.htlc.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.htlc.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.htlc.QueryClient =
 proto.irismod.htlc.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Query_HTLC = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.htlc.QueryHTLCRequest,
- *   !proto.irismod.htlc.QueryHTLCResponse>}
- */
-const methodInfo_Query_HTLC = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.htlc.QueryHTLCResponse,
-  /**
-   * @param {!proto.irismod.htlc.QueryHTLCRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.htlc.QueryHTLCResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.htlc.QueryHTLCRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.htlc.QueryHTLCResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.htlc.QueryHTLCResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.htlc.QueryHTLCResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.htlc.QueryClient.prototype.hTLC =
 /**
  * @param {!proto.irismod.htlc.QueryHTLCRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.htlc.QueryHTLCResponse>}
  *     Promise that resolves to the response

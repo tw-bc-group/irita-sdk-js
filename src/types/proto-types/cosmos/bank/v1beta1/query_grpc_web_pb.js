@@ -33,7 +33,7 @@ proto.cosmos.bank.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -41,7 +41,7 @@ proto.cosmos.bank.v1beta1 = require('./query_pb.js');
 proto.cosmos.bank.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -59,7 +59,7 @@ proto.cosmos.bank.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -67,7 +67,7 @@ proto.cosmos.bank.v1beta1.QueryClient =
 proto.cosmos.bank.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -105,30 +105,11 @@ const methodDescriptor_Query_Balance = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.QueryBalanceRequest,
- *   !proto.cosmos.bank.v1beta1.QueryBalanceResponse>}
- */
-const methodInfo_Query_Balance = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.QueryBalanceResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.QueryBalanceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.QueryBalanceResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.QueryBalanceRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.QueryBalanceResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.QueryBalanceResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.QueryBalanceResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -147,7 +128,7 @@ proto.cosmos.bank.v1beta1.QueryClient.prototype.balance =
 /**
  * @param {!proto.cosmos.bank.v1beta1.QueryBalanceRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.QueryBalanceResponse>}
  *     Promise that resolves to the response
@@ -185,30 +166,11 @@ const methodDescriptor_Query_AllBalances = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.QueryAllBalancesRequest,
- *   !proto.cosmos.bank.v1beta1.QueryAllBalancesResponse>}
- */
-const methodInfo_Query_AllBalances = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.QueryAllBalancesResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.QueryAllBalancesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.QueryAllBalancesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.QueryAllBalancesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.QueryAllBalancesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.QueryAllBalancesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.QueryAllBalancesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -227,7 +189,7 @@ proto.cosmos.bank.v1beta1.QueryClient.prototype.allBalances =
 /**
  * @param {!proto.cosmos.bank.v1beta1.QueryAllBalancesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.QueryAllBalancesResponse>}
  *     Promise that resolves to the response
@@ -265,30 +227,11 @@ const methodDescriptor_Query_TotalSupply = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.QueryTotalSupplyRequest,
- *   !proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse>}
- */
-const methodInfo_Query_TotalSupply = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.QueryTotalSupplyRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.QueryTotalSupplyRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -307,7 +250,7 @@ proto.cosmos.bank.v1beta1.QueryClient.prototype.totalSupply =
 /**
  * @param {!proto.cosmos.bank.v1beta1.QueryTotalSupplyRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.QueryTotalSupplyResponse>}
  *     Promise that resolves to the response
@@ -345,30 +288,11 @@ const methodDescriptor_Query_SupplyOf = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.QuerySupplyOfRequest,
- *   !proto.cosmos.bank.v1beta1.QuerySupplyOfResponse>}
- */
-const methodInfo_Query_SupplyOf = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.QuerySupplyOfResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.QuerySupplyOfRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.QuerySupplyOfResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.QuerySupplyOfRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.QuerySupplyOfResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.QuerySupplyOfResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.QuerySupplyOfResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -387,7 +311,7 @@ proto.cosmos.bank.v1beta1.QueryClient.prototype.supplyOf =
 /**
  * @param {!proto.cosmos.bank.v1beta1.QuerySupplyOfRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.QuerySupplyOfResponse>}
  *     Promise that resolves to the response
@@ -425,30 +349,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.bank.v1beta1.QueryParamsRequest,
- *   !proto.cosmos.bank.v1beta1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.bank.v1beta1.QueryParamsResponse,
-  /**
-   * @param {!proto.cosmos.bank.v1beta1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.bank.v1beta1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.bank.v1beta1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.bank.v1beta1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.bank.v1beta1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.bank.v1beta1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -467,7 +372,7 @@ proto.cosmos.bank.v1beta1.QueryClient.prototype.params =
 /**
  * @param {!proto.cosmos.bank.v1beta1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.bank.v1beta1.QueryParamsResponse>}
  *     Promise that resolves to the response

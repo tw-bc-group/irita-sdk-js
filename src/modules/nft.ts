@@ -30,7 +30,9 @@ export class Nft {
     id: string,
     name: string,
     schema: string,
-    baseTx: types.BaseTx
+    mintRestricted: boolean,
+    updateRestricted: boolean,
+    baseTx: types.BaseTx,
   ): Promise<types.TxResult> {
     const sender = await this.client.keys.show(baseTx.from);
     const msgs: any[] = [
@@ -40,13 +42,15 @@ export class Nft {
           id,
           name,
           schema,
-          sender
+          sender,
+          mintRestricted,
+          updateRestricted,
         }
       }
     ];
     return this.client.tx.buildAndSend(msgs, baseTx);
   }
-  
+
   /**
    * mint NFT
    * @param id string

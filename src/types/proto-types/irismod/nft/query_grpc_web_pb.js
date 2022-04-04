@@ -28,7 +28,7 @@ proto.irismod.nft = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -36,7 +36,7 @@ proto.irismod.nft = require('./query_pb.js');
 proto.irismod.nft.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -54,7 +54,7 @@ proto.irismod.nft.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -62,7 +62,7 @@ proto.irismod.nft.QueryClient =
 proto.irismod.nft.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -100,30 +100,11 @@ const methodDescriptor_Query_Supply = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QuerySupplyRequest,
- *   !proto.irismod.nft.QuerySupplyResponse>}
- */
-const methodInfo_Query_Supply = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QuerySupplyResponse,
-  /**
-   * @param {!proto.irismod.nft.QuerySupplyRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QuerySupplyResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QuerySupplyRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QuerySupplyResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QuerySupplyResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QuerySupplyResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -142,7 +123,7 @@ proto.irismod.nft.QueryClient.prototype.supply =
 /**
  * @param {!proto.irismod.nft.QuerySupplyRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QuerySupplyResponse>}
  *     Promise that resolves to the response
@@ -180,30 +161,11 @@ const methodDescriptor_Query_Owner = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QueryOwnerRequest,
- *   !proto.irismod.nft.QueryOwnerResponse>}
- */
-const methodInfo_Query_Owner = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QueryOwnerResponse,
-  /**
-   * @param {!proto.irismod.nft.QueryOwnerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QueryOwnerResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QueryOwnerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QueryOwnerResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QueryOwnerResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QueryOwnerResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -222,7 +184,7 @@ proto.irismod.nft.QueryClient.prototype.owner =
 /**
  * @param {!proto.irismod.nft.QueryOwnerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QueryOwnerResponse>}
  *     Promise that resolves to the response
@@ -260,30 +222,11 @@ const methodDescriptor_Query_Collection = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QueryCollectionRequest,
- *   !proto.irismod.nft.QueryCollectionResponse>}
- */
-const methodInfo_Query_Collection = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QueryCollectionResponse,
-  /**
-   * @param {!proto.irismod.nft.QueryCollectionRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QueryCollectionResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QueryCollectionRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QueryCollectionResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QueryCollectionResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QueryCollectionResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -302,7 +245,7 @@ proto.irismod.nft.QueryClient.prototype.collection =
 /**
  * @param {!proto.irismod.nft.QueryCollectionRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QueryCollectionResponse>}
  *     Promise that resolves to the response
@@ -340,30 +283,11 @@ const methodDescriptor_Query_Denom = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QueryDenomRequest,
- *   !proto.irismod.nft.QueryDenomResponse>}
- */
-const methodInfo_Query_Denom = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QueryDenomResponse,
-  /**
-   * @param {!proto.irismod.nft.QueryDenomRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QueryDenomResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QueryDenomRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QueryDenomResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QueryDenomResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QueryDenomResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -382,7 +306,7 @@ proto.irismod.nft.QueryClient.prototype.denom =
 /**
  * @param {!proto.irismod.nft.QueryDenomRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QueryDenomResponse>}
  *     Promise that resolves to the response
@@ -420,30 +344,11 @@ const methodDescriptor_Query_Denoms = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QueryDenomsRequest,
- *   !proto.irismod.nft.QueryDenomsResponse>}
- */
-const methodInfo_Query_Denoms = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QueryDenomsResponse,
-  /**
-   * @param {!proto.irismod.nft.QueryDenomsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QueryDenomsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QueryDenomsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QueryDenomsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QueryDenomsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QueryDenomsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -462,7 +367,7 @@ proto.irismod.nft.QueryClient.prototype.denoms =
 /**
  * @param {!proto.irismod.nft.QueryDenomsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QueryDenomsResponse>}
  *     Promise that resolves to the response
@@ -500,30 +405,11 @@ const methodDescriptor_Query_NFT = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.nft.QueryNFTRequest,
- *   !proto.irismod.nft.QueryNFTResponse>}
- */
-const methodInfo_Query_NFT = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.nft.QueryNFTResponse,
-  /**
-   * @param {!proto.irismod.nft.QueryNFTRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.nft.QueryNFTResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.nft.QueryNFTRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.nft.QueryNFTResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.nft.QueryNFTResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.nft.QueryNFTResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -542,7 +428,7 @@ proto.irismod.nft.QueryClient.prototype.nFT =
 /**
  * @param {!proto.irismod.nft.QueryNFTRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.nft.QueryNFTResponse>}
  *     Promise that resolves to the response

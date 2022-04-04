@@ -36,7 +36,7 @@ proto.irismod.token = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -44,7 +44,7 @@ proto.irismod.token = require('./query_pb.js');
 proto.irismod.token.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -62,7 +62,7 @@ proto.irismod.token.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -70,7 +70,7 @@ proto.irismod.token.QueryClient =
 proto.irismod.token.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -108,30 +108,11 @@ const methodDescriptor_Query_Token = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.QueryTokenRequest,
- *   !proto.irismod.token.QueryTokenResponse>}
- */
-const methodInfo_Query_Token = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.QueryTokenResponse,
-  /**
-   * @param {!proto.irismod.token.QueryTokenRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.QueryTokenResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.QueryTokenRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.QueryTokenResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.QueryTokenResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.QueryTokenResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -150,7 +131,7 @@ proto.irismod.token.QueryClient.prototype.token =
 /**
  * @param {!proto.irismod.token.QueryTokenRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.QueryTokenResponse>}
  *     Promise that resolves to the response
@@ -188,30 +169,11 @@ const methodDescriptor_Query_Tokens = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.QueryTokensRequest,
- *   !proto.irismod.token.QueryTokensResponse>}
- */
-const methodInfo_Query_Tokens = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.QueryTokensResponse,
-  /**
-   * @param {!proto.irismod.token.QueryTokensRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.QueryTokensResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.QueryTokensRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.QueryTokensResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.QueryTokensResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.QueryTokensResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -230,7 +192,7 @@ proto.irismod.token.QueryClient.prototype.tokens =
 /**
  * @param {!proto.irismod.token.QueryTokensRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.QueryTokensResponse>}
  *     Promise that resolves to the response
@@ -268,30 +230,11 @@ const methodDescriptor_Query_Fees = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.QueryFeesRequest,
- *   !proto.irismod.token.QueryFeesResponse>}
- */
-const methodInfo_Query_Fees = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.QueryFeesResponse,
-  /**
-   * @param {!proto.irismod.token.QueryFeesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.QueryFeesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.QueryFeesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.QueryFeesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.QueryFeesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.QueryFeesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -310,7 +253,7 @@ proto.irismod.token.QueryClient.prototype.fees =
 /**
  * @param {!proto.irismod.token.QueryFeesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.QueryFeesResponse>}
  *     Promise that resolves to the response
@@ -348,30 +291,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.token.QueryParamsRequest,
- *   !proto.irismod.token.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.token.QueryParamsResponse,
-  /**
-   * @param {!proto.irismod.token.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.token.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.token.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.token.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.token.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.token.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -390,7 +314,7 @@ proto.irismod.token.QueryClient.prototype.params =
 /**
  * @param {!proto.irismod.token.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.token.QueryParamsResponse>}
  *     Promise that resolves to the response

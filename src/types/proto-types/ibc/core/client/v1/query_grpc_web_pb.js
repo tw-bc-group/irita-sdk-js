@@ -34,7 +34,7 @@ proto.ibc.core.client.v1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -42,7 +42,7 @@ proto.ibc.core.client.v1 = require('./query_pb.js');
 proto.ibc.core.client.v1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -60,7 +60,7 @@ proto.ibc.core.client.v1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -68,7 +68,7 @@ proto.ibc.core.client.v1.QueryClient =
 proto.ibc.core.client.v1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -106,30 +106,11 @@ const methodDescriptor_Query_ClientState = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.QueryClientStateRequest,
- *   !proto.ibc.core.client.v1.QueryClientStateResponse>}
- */
-const methodInfo_Query_ClientState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.QueryClientStateResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.QueryClientStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.QueryClientStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.QueryClientStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.QueryClientStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.QueryClientStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.QueryClientStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -148,7 +129,7 @@ proto.ibc.core.client.v1.QueryClient.prototype.clientState =
 /**
  * @param {!proto.ibc.core.client.v1.QueryClientStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.QueryClientStateResponse>}
  *     Promise that resolves to the response
@@ -186,30 +167,11 @@ const methodDescriptor_Query_ClientStates = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.QueryClientStatesRequest,
- *   !proto.ibc.core.client.v1.QueryClientStatesResponse>}
- */
-const methodInfo_Query_ClientStates = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.QueryClientStatesResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.QueryClientStatesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.QueryClientStatesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.QueryClientStatesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.QueryClientStatesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.QueryClientStatesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.QueryClientStatesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -228,7 +190,7 @@ proto.ibc.core.client.v1.QueryClient.prototype.clientStates =
 /**
  * @param {!proto.ibc.core.client.v1.QueryClientStatesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.QueryClientStatesResponse>}
  *     Promise that resolves to the response
@@ -266,30 +228,11 @@ const methodDescriptor_Query_ConsensusState = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.QueryConsensusStateRequest,
- *   !proto.ibc.core.client.v1.QueryConsensusStateResponse>}
- */
-const methodInfo_Query_ConsensusState = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.QueryConsensusStateResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.QueryConsensusStateRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.QueryConsensusStateResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.QueryConsensusStateRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.QueryConsensusStateResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.QueryConsensusStateResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.QueryConsensusStateResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -308,7 +251,7 @@ proto.ibc.core.client.v1.QueryClient.prototype.consensusState =
 /**
  * @param {!proto.ibc.core.client.v1.QueryConsensusStateRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.QueryConsensusStateResponse>}
  *     Promise that resolves to the response
@@ -346,30 +289,11 @@ const methodDescriptor_Query_ConsensusStates = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.QueryConsensusStatesRequest,
- *   !proto.ibc.core.client.v1.QueryConsensusStatesResponse>}
- */
-const methodInfo_Query_ConsensusStates = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.QueryConsensusStatesResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.QueryConsensusStatesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.QueryConsensusStatesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.QueryConsensusStatesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.QueryConsensusStatesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.QueryConsensusStatesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.QueryConsensusStatesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -388,7 +312,7 @@ proto.ibc.core.client.v1.QueryClient.prototype.consensusStates =
 /**
  * @param {!proto.ibc.core.client.v1.QueryConsensusStatesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.QueryConsensusStatesResponse>}
  *     Promise that resolves to the response
@@ -426,30 +350,11 @@ const methodDescriptor_Query_ClientParams = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.client.v1.QueryClientParamsRequest,
- *   !proto.ibc.core.client.v1.QueryClientParamsResponse>}
- */
-const methodInfo_Query_ClientParams = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.client.v1.QueryClientParamsResponse,
-  /**
-   * @param {!proto.ibc.core.client.v1.QueryClientParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.client.v1.QueryClientParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.client.v1.QueryClientParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.client.v1.QueryClientParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.client.v1.QueryClientParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.client.v1.QueryClientParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -468,7 +373,7 @@ proto.ibc.core.client.v1.QueryClient.prototype.clientParams =
 /**
  * @param {!proto.ibc.core.client.v1.QueryClientParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.client.v1.QueryClientParamsResponse>}
  *     Promise that resolves to the response

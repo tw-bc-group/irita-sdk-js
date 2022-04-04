@@ -26,7 +26,7 @@ proto.irismod.record = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -34,7 +34,7 @@ proto.irismod.record = require('./query_pb.js');
 proto.irismod.record.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -52,7 +52,7 @@ proto.irismod.record.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -60,7 +60,7 @@ proto.irismod.record.QueryClient =
 proto.irismod.record.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -98,30 +98,11 @@ const methodDescriptor_Query_Record = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.irismod.record.QueryRecordRequest,
- *   !proto.irismod.record.QueryRecordResponse>}
- */
-const methodInfo_Query_Record = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.irismod.record.QueryRecordResponse,
-  /**
-   * @param {!proto.irismod.record.QueryRecordRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.irismod.record.QueryRecordResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.irismod.record.QueryRecordRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.irismod.record.QueryRecordResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.irismod.record.QueryRecordResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.irismod.record.QueryRecordResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -140,7 +121,7 @@ proto.irismod.record.QueryClient.prototype.record =
 /**
  * @param {!proto.irismod.record.QueryRecordRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.irismod.record.QueryRecordResponse>}
  *     Promise that resolves to the response

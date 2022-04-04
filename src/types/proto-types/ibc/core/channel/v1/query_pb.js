@@ -2,15 +2,24 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var ibc_core_client_v1_client_pb = require('../../../../ibc/core/client/v1/client_pb.js');
 goog.object.extend(proto, ibc_core_client_v1_client_pb);
@@ -5146,8 +5155,10 @@ proto.ibc.core.channel.v1.QueryUnreceivedPacketsRequest.deserializeBinaryFromRea
       msg.setChannelId(value);
       break;
     case 3:
-      var value = /** @type {!Array<number>} */ (reader.readPackedUint64());
-      msg.setPacketCommitmentSequencesList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addPacketCommitmentSequences(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -5353,8 +5364,10 @@ proto.ibc.core.channel.v1.QueryUnreceivedPacketsResponse.deserializeBinaryFromRe
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<number>} */ (reader.readPackedUint64());
-      msg.setSequencesList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addSequences(values[i]);
+      }
       break;
     case 2:
       var value = new ibc_core_client_v1_client_pb.Height;
@@ -5569,8 +5582,10 @@ proto.ibc.core.channel.v1.QueryUnreceivedAcksRequest.deserializeBinaryFromReader
       msg.setChannelId(value);
       break;
     case 3:
-      var value = /** @type {!Array<number>} */ (reader.readPackedUint64());
-      msg.setPacketAckSequencesList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addPacketAckSequences(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -5776,8 +5791,10 @@ proto.ibc.core.channel.v1.QueryUnreceivedAcksResponse.deserializeBinaryFromReade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<number>} */ (reader.readPackedUint64());
-      msg.setSequencesList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedUint64() : [reader.readUint64()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addSequences(values[i]);
+      }
       break;
     case 2:
       var value = new ibc_core_client_v1_client_pb.Height;

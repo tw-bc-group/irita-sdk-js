@@ -32,7 +32,7 @@ proto.ibc.core.connection.v1 = require('./tx_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.ibc.core.connection.v1 = require('./tx_pb.js');
 proto.ibc.core.connection.v1.MsgClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.ibc.core.connection.v1.MsgClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.ibc.core.connection.v1.MsgClient =
 proto.ibc.core.connection.v1.MsgPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_Msg_ConnectionOpenInit = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenInit,
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse>}
- */
-const methodInfo_Msg_ConnectionOpenInit = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenInit} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenInit} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.ibc.core.connection.v1.MsgClient.prototype.connectionOpenInit =
 /**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenInit} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.MsgConnectionOpenInitResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_Msg_ConnectionOpenTry = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenTry,
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse>}
- */
-const methodInfo_Msg_ConnectionOpenTry = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenTry} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenTry} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.ibc.core.connection.v1.MsgClient.prototype.connectionOpenTry =
 /**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenTry} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.MsgConnectionOpenTryResponse>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_Msg_ConnectionOpenAck = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenAck,
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse>}
- */
-const methodInfo_Msg_ConnectionOpenAck = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenAck} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenAck} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.ibc.core.connection.v1.MsgClient.prototype.connectionOpenAck =
 /**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenAck} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.MsgConnectionOpenAckResponse>}
  *     Promise that resolves to the response
@@ -344,30 +287,11 @@ const methodDescriptor_Msg_ConnectionOpenConfirm = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenConfirm,
- *   !proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse>}
- */
-const methodInfo_Msg_ConnectionOpenConfirm = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse,
-  /**
-   * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenConfirm} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenConfirm} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -386,7 +310,7 @@ proto.ibc.core.connection.v1.MsgClient.prototype.connectionOpenConfirm =
 /**
  * @param {!proto.ibc.core.connection.v1.MsgConnectionOpenConfirm} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.core.connection.v1.MsgConnectionOpenConfirmResponse>}
  *     Promise that resolves to the response

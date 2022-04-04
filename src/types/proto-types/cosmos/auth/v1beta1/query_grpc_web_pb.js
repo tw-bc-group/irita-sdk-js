@@ -33,7 +33,7 @@ proto.cosmos.auth.v1beta1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -41,7 +41,7 @@ proto.cosmos.auth.v1beta1 = require('./query_pb.js');
 proto.cosmos.auth.v1beta1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -59,7 +59,7 @@ proto.cosmos.auth.v1beta1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -67,7 +67,7 @@ proto.cosmos.auth.v1beta1.QueryClient =
 proto.cosmos.auth.v1beta1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -105,30 +105,11 @@ const methodDescriptor_Query_Account = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.auth.v1beta1.QueryAccountRequest,
- *   !proto.cosmos.auth.v1beta1.QueryAccountResponse>}
- */
-const methodInfo_Query_Account = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.auth.v1beta1.QueryAccountResponse,
-  /**
-   * @param {!proto.cosmos.auth.v1beta1.QueryAccountRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.auth.v1beta1.QueryAccountResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.auth.v1beta1.QueryAccountRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.auth.v1beta1.QueryAccountResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.auth.v1beta1.QueryAccountResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.auth.v1beta1.QueryAccountResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -147,7 +128,7 @@ proto.cosmos.auth.v1beta1.QueryClient.prototype.account =
 /**
  * @param {!proto.cosmos.auth.v1beta1.QueryAccountRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.auth.v1beta1.QueryAccountResponse>}
  *     Promise that resolves to the response
@@ -185,30 +166,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.cosmos.auth.v1beta1.QueryParamsRequest,
- *   !proto.cosmos.auth.v1beta1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.cosmos.auth.v1beta1.QueryParamsResponse,
-  /**
-   * @param {!proto.cosmos.auth.v1beta1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.cosmos.auth.v1beta1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.cosmos.auth.v1beta1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.cosmos.auth.v1beta1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.cosmos.auth.v1beta1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.cosmos.auth.v1beta1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -227,7 +189,7 @@ proto.cosmos.auth.v1beta1.QueryClient.prototype.params =
 /**
  * @param {!proto.cosmos.auth.v1beta1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.cosmos.auth.v1beta1.QueryParamsResponse>}
  *     Promise that resolves to the response

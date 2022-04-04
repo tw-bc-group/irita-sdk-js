@@ -32,7 +32,7 @@ proto.ibc.applications.transfer.v1 = require('./query_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -40,7 +40,7 @@ proto.ibc.applications.transfer.v1 = require('./query_pb.js');
 proto.ibc.applications.transfer.v1.QueryClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -58,7 +58,7 @@ proto.ibc.applications.transfer.v1.QueryClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -66,7 +66,7 @@ proto.ibc.applications.transfer.v1.QueryClient =
 proto.ibc.applications.transfer.v1.QueryPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -104,30 +104,11 @@ const methodDescriptor_Query_DenomTrace = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.applications.transfer.v1.QueryDenomTraceRequest,
- *   !proto.ibc.applications.transfer.v1.QueryDenomTraceResponse>}
- */
-const methodInfo_Query_DenomTrace = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.applications.transfer.v1.QueryDenomTraceResponse,
-  /**
-   * @param {!proto.ibc.applications.transfer.v1.QueryDenomTraceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.applications.transfer.v1.QueryDenomTraceResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.applications.transfer.v1.QueryDenomTraceRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.applications.transfer.v1.QueryDenomTraceResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.QueryDenomTraceResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.QueryDenomTraceResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -146,7 +127,7 @@ proto.ibc.applications.transfer.v1.QueryClient.prototype.denomTrace =
 /**
  * @param {!proto.ibc.applications.transfer.v1.QueryDenomTraceRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.applications.transfer.v1.QueryDenomTraceResponse>}
  *     Promise that resolves to the response
@@ -184,30 +165,11 @@ const methodDescriptor_Query_DenomTraces = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.applications.transfer.v1.QueryDenomTracesRequest,
- *   !proto.ibc.applications.transfer.v1.QueryDenomTracesResponse>}
- */
-const methodInfo_Query_DenomTraces = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.applications.transfer.v1.QueryDenomTracesResponse,
-  /**
-   * @param {!proto.ibc.applications.transfer.v1.QueryDenomTracesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.applications.transfer.v1.QueryDenomTracesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.applications.transfer.v1.QueryDenomTracesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.applications.transfer.v1.QueryDenomTracesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.QueryDenomTracesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.QueryDenomTracesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -226,7 +188,7 @@ proto.ibc.applications.transfer.v1.QueryClient.prototype.denomTraces =
 /**
  * @param {!proto.ibc.applications.transfer.v1.QueryDenomTracesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.applications.transfer.v1.QueryDenomTracesResponse>}
  *     Promise that resolves to the response
@@ -264,30 +226,11 @@ const methodDescriptor_Query_Params = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.ibc.applications.transfer.v1.QueryParamsRequest,
- *   !proto.ibc.applications.transfer.v1.QueryParamsResponse>}
- */
-const methodInfo_Query_Params = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.ibc.applications.transfer.v1.QueryParamsResponse,
-  /**
-   * @param {!proto.ibc.applications.transfer.v1.QueryParamsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.ibc.applications.transfer.v1.QueryParamsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.ibc.applications.transfer.v1.QueryParamsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.ibc.applications.transfer.v1.QueryParamsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.ibc.applications.transfer.v1.QueryParamsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.ibc.applications.transfer.v1.QueryParamsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -306,7 +249,7 @@ proto.ibc.applications.transfer.v1.QueryClient.prototype.params =
 /**
  * @param {!proto.ibc.applications.transfer.v1.QueryParamsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.ibc.applications.transfer.v1.QueryParamsResponse>}
  *     Promise that resolves to the response

@@ -34,7 +34,7 @@ proto.tendermint.abci = require('./types_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -42,7 +42,7 @@ proto.tendermint.abci = require('./types_pb.js');
 proto.tendermint.abci.ABCIApplicationClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -60,7 +60,7 @@ proto.tendermint.abci.ABCIApplicationClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -68,7 +68,7 @@ proto.tendermint.abci.ABCIApplicationClient =
 proto.tendermint.abci.ABCIApplicationPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'text';
+  options.format = 'text';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -106,30 +106,11 @@ const methodDescriptor_ABCIApplication_Echo = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestEcho,
- *   !proto.tendermint.abci.ResponseEcho>}
- */
-const methodInfo_ABCIApplication_Echo = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseEcho,
-  /**
-   * @param {!proto.tendermint.abci.RequestEcho} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseEcho.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestEcho} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseEcho)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseEcho)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseEcho>|undefined}
  *     The XHR Node Readable Stream
@@ -148,7 +129,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.echo =
 /**
  * @param {!proto.tendermint.abci.RequestEcho} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseEcho>}
  *     Promise that resolves to the response
@@ -186,30 +167,11 @@ const methodDescriptor_ABCIApplication_Flush = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestFlush,
- *   !proto.tendermint.abci.ResponseFlush>}
- */
-const methodInfo_ABCIApplication_Flush = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseFlush,
-  /**
-   * @param {!proto.tendermint.abci.RequestFlush} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseFlush.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestFlush} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseFlush)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseFlush)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseFlush>|undefined}
  *     The XHR Node Readable Stream
@@ -228,7 +190,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.flush =
 /**
  * @param {!proto.tendermint.abci.RequestFlush} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseFlush>}
  *     Promise that resolves to the response
@@ -266,30 +228,11 @@ const methodDescriptor_ABCIApplication_Info = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestInfo,
- *   !proto.tendermint.abci.ResponseInfo>}
- */
-const methodInfo_ABCIApplication_Info = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseInfo,
-  /**
-   * @param {!proto.tendermint.abci.RequestInfo} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseInfo.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestInfo} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseInfo)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseInfo)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseInfo>|undefined}
  *     The XHR Node Readable Stream
@@ -308,7 +251,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.info =
 /**
  * @param {!proto.tendermint.abci.RequestInfo} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseInfo>}
  *     Promise that resolves to the response
@@ -346,30 +289,11 @@ const methodDescriptor_ABCIApplication_SetOption = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestSetOption,
- *   !proto.tendermint.abci.ResponseSetOption>}
- */
-const methodInfo_ABCIApplication_SetOption = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseSetOption,
-  /**
-   * @param {!proto.tendermint.abci.RequestSetOption} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseSetOption.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestSetOption} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseSetOption)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseSetOption)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseSetOption>|undefined}
  *     The XHR Node Readable Stream
@@ -388,7 +312,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.setOption =
 /**
  * @param {!proto.tendermint.abci.RequestSetOption} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseSetOption>}
  *     Promise that resolves to the response
@@ -426,30 +350,11 @@ const methodDescriptor_ABCIApplication_DeliverTx = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestDeliverTx,
- *   !proto.tendermint.abci.ResponseDeliverTx>}
- */
-const methodInfo_ABCIApplication_DeliverTx = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseDeliverTx,
-  /**
-   * @param {!proto.tendermint.abci.RequestDeliverTx} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseDeliverTx.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestDeliverTx} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseDeliverTx)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseDeliverTx)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseDeliverTx>|undefined}
  *     The XHR Node Readable Stream
@@ -468,7 +373,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.deliverTx =
 /**
  * @param {!proto.tendermint.abci.RequestDeliverTx} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseDeliverTx>}
  *     Promise that resolves to the response
@@ -506,30 +411,11 @@ const methodDescriptor_ABCIApplication_CheckTx = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestCheckTx,
- *   !proto.tendermint.abci.ResponseCheckTx>}
- */
-const methodInfo_ABCIApplication_CheckTx = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseCheckTx,
-  /**
-   * @param {!proto.tendermint.abci.RequestCheckTx} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseCheckTx.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestCheckTx} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseCheckTx)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseCheckTx)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseCheckTx>|undefined}
  *     The XHR Node Readable Stream
@@ -548,7 +434,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.checkTx =
 /**
  * @param {!proto.tendermint.abci.RequestCheckTx} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseCheckTx>}
  *     Promise that resolves to the response
@@ -586,30 +472,11 @@ const methodDescriptor_ABCIApplication_Query = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestQuery,
- *   !proto.tendermint.abci.ResponseQuery>}
- */
-const methodInfo_ABCIApplication_Query = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseQuery,
-  /**
-   * @param {!proto.tendermint.abci.RequestQuery} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseQuery.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestQuery} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseQuery)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseQuery)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseQuery>|undefined}
  *     The XHR Node Readable Stream
@@ -628,7 +495,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.query =
 /**
  * @param {!proto.tendermint.abci.RequestQuery} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseQuery>}
  *     Promise that resolves to the response
@@ -666,30 +533,11 @@ const methodDescriptor_ABCIApplication_Commit = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestCommit,
- *   !proto.tendermint.abci.ResponseCommit>}
- */
-const methodInfo_ABCIApplication_Commit = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseCommit,
-  /**
-   * @param {!proto.tendermint.abci.RequestCommit} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseCommit.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestCommit} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseCommit)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseCommit)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseCommit>|undefined}
  *     The XHR Node Readable Stream
@@ -708,7 +556,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.commit =
 /**
  * @param {!proto.tendermint.abci.RequestCommit} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseCommit>}
  *     Promise that resolves to the response
@@ -746,30 +594,11 @@ const methodDescriptor_ABCIApplication_InitChain = new grpc.web.MethodDescriptor
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestInitChain,
- *   !proto.tendermint.abci.ResponseInitChain>}
- */
-const methodInfo_ABCIApplication_InitChain = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseInitChain,
-  /**
-   * @param {!proto.tendermint.abci.RequestInitChain} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseInitChain.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestInitChain} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseInitChain)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseInitChain)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseInitChain>|undefined}
  *     The XHR Node Readable Stream
@@ -788,7 +617,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.initChain =
 /**
  * @param {!proto.tendermint.abci.RequestInitChain} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseInitChain>}
  *     Promise that resolves to the response
@@ -826,30 +655,11 @@ const methodDescriptor_ABCIApplication_BeginBlock = new grpc.web.MethodDescripto
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestBeginBlock,
- *   !proto.tendermint.abci.ResponseBeginBlock>}
- */
-const methodInfo_ABCIApplication_BeginBlock = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseBeginBlock,
-  /**
-   * @param {!proto.tendermint.abci.RequestBeginBlock} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseBeginBlock.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestBeginBlock} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseBeginBlock)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseBeginBlock)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseBeginBlock>|undefined}
  *     The XHR Node Readable Stream
@@ -868,7 +678,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.beginBlock =
 /**
  * @param {!proto.tendermint.abci.RequestBeginBlock} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseBeginBlock>}
  *     Promise that resolves to the response
@@ -906,30 +716,11 @@ const methodDescriptor_ABCIApplication_EndBlock = new grpc.web.MethodDescriptor(
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestEndBlock,
- *   !proto.tendermint.abci.ResponseEndBlock>}
- */
-const methodInfo_ABCIApplication_EndBlock = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseEndBlock,
-  /**
-   * @param {!proto.tendermint.abci.RequestEndBlock} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseEndBlock.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestEndBlock} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseEndBlock)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseEndBlock)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseEndBlock>|undefined}
  *     The XHR Node Readable Stream
@@ -948,7 +739,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.endBlock =
 /**
  * @param {!proto.tendermint.abci.RequestEndBlock} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseEndBlock>}
  *     Promise that resolves to the response
@@ -986,30 +777,11 @@ const methodDescriptor_ABCIApplication_ListSnapshots = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestListSnapshots,
- *   !proto.tendermint.abci.ResponseListSnapshots>}
- */
-const methodInfo_ABCIApplication_ListSnapshots = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseListSnapshots,
-  /**
-   * @param {!proto.tendermint.abci.RequestListSnapshots} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseListSnapshots.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestListSnapshots} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseListSnapshots)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseListSnapshots)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseListSnapshots>|undefined}
  *     The XHR Node Readable Stream
@@ -1028,7 +800,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.listSnapshots =
 /**
  * @param {!proto.tendermint.abci.RequestListSnapshots} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseListSnapshots>}
  *     Promise that resolves to the response
@@ -1066,30 +838,11 @@ const methodDescriptor_ABCIApplication_OfferSnapshot = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestOfferSnapshot,
- *   !proto.tendermint.abci.ResponseOfferSnapshot>}
- */
-const methodInfo_ABCIApplication_OfferSnapshot = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseOfferSnapshot,
-  /**
-   * @param {!proto.tendermint.abci.RequestOfferSnapshot} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseOfferSnapshot.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestOfferSnapshot} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseOfferSnapshot)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseOfferSnapshot)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseOfferSnapshot>|undefined}
  *     The XHR Node Readable Stream
@@ -1108,7 +861,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.offerSnapshot =
 /**
  * @param {!proto.tendermint.abci.RequestOfferSnapshot} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseOfferSnapshot>}
  *     Promise that resolves to the response
@@ -1146,30 +899,11 @@ const methodDescriptor_ABCIApplication_LoadSnapshotChunk = new grpc.web.MethodDe
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestLoadSnapshotChunk,
- *   !proto.tendermint.abci.ResponseLoadSnapshotChunk>}
- */
-const methodInfo_ABCIApplication_LoadSnapshotChunk = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseLoadSnapshotChunk,
-  /**
-   * @param {!proto.tendermint.abci.RequestLoadSnapshotChunk} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseLoadSnapshotChunk.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestLoadSnapshotChunk} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseLoadSnapshotChunk)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseLoadSnapshotChunk)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseLoadSnapshotChunk>|undefined}
  *     The XHR Node Readable Stream
@@ -1188,7 +922,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.loadSnapshotChunk =
 /**
  * @param {!proto.tendermint.abci.RequestLoadSnapshotChunk} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseLoadSnapshotChunk>}
  *     Promise that resolves to the response
@@ -1226,30 +960,11 @@ const methodDescriptor_ABCIApplication_ApplySnapshotChunk = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.tendermint.abci.RequestApplySnapshotChunk,
- *   !proto.tendermint.abci.ResponseApplySnapshotChunk>}
- */
-const methodInfo_ABCIApplication_ApplySnapshotChunk = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.tendermint.abci.ResponseApplySnapshotChunk,
-  /**
-   * @param {!proto.tendermint.abci.RequestApplySnapshotChunk} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.tendermint.abci.ResponseApplySnapshotChunk.deserializeBinary
-);
-
-
-/**
  * @param {!proto.tendermint.abci.RequestApplySnapshotChunk} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.tendermint.abci.ResponseApplySnapshotChunk)}
+ * @param {function(?grpc.web.RpcError, ?proto.tendermint.abci.ResponseApplySnapshotChunk)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.tendermint.abci.ResponseApplySnapshotChunk>|undefined}
  *     The XHR Node Readable Stream
@@ -1268,7 +983,7 @@ proto.tendermint.abci.ABCIApplicationClient.prototype.applySnapshotChunk =
 /**
  * @param {!proto.tendermint.abci.RequestApplySnapshotChunk} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.tendermint.abci.ResponseApplySnapshotChunk>}
  *     Promise that resolves to the response
